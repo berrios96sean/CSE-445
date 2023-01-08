@@ -13,7 +13,6 @@ namespace mathClient
             ServiceReference1.CalculatorSoapClient myClient = new ServiceReference1.CalculatorSoapClient("CalculatorSoap");
             int result = myClient.Multiply(10,10);
             Console.WriteLine(result);
-
         }
     }
 }

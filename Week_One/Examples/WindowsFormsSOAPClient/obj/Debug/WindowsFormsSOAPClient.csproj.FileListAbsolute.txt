@@ -1,0 +1,11 @@
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\bin\Debug\WindowsFormsSOAPClient.exe.config
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\bin\Debug\WindowsFormsSOAPClient.exe
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\bin\Debug\WindowsFormsSOAPClient.pdb
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.csproj.SuggestedBindingRedirects.cache
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.Form1.resources
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.Properties.Resources.resources
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.csproj.GenerateResource.cache
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.exe
+C:\Repos\CSE-445\Week_One\Examples\WindowsFormsSOAPClient\obj\Debug\WindowsFormsSOAPClient.pdb
