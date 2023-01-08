@@ -20,7 +20,7 @@ namespace WindowsFormsSOAPClient
         private void button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine(label1.Text);
-            ServiceReference1.CalculatorSoapClient myClient = new ServiceReference1.CalculatorSoapClient();
+            ServiceReference1.CalculatorSoapClient myClient = new ServiceReference1.CalculatorSoapClient("CalculatorSoap");
             int x = Int32.Parse(textBox1.Text);
             int y = Int32.Parse(textBox2.Text);
             Console.WriteLine("x = " + x + "y = " + y);
