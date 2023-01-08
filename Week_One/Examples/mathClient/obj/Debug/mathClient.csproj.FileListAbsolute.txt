@@ -1,0 +1,8 @@
+C:\Repos\CSE-445\Week_One\Examples\mathClient\bin\Debug\mathClient.exe.config
+C:\Repos\CSE-445\Week_One\Examples\mathClient\bin\Debug\mathClient.exe
+C:\Repos\CSE-445\Week_One\Examples\mathClient\bin\Debug\mathClient.pdb
+C:\Repos\CSE-445\Week_One\Examples\mathClient\obj\Debug\mathClient.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Week_One\Examples\mathClient\obj\Debug\mathClient.csproj.SuggestedBindingRedirects.cache
+C:\Repos\CSE-445\Week_One\Examples\mathClient\obj\Debug\mathClient.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Week_One\Examples\mathClient\obj\Debug\mathClient.exe
+C:\Repos\CSE-445\Week_One\Examples\mathClient\obj\Debug\mathClient.pdb
