@@ -7,3 +7,5 @@ process == parent
 thread == child 
 
 Download eclipse for Java programming assignments 
+
+Need to understand the role that multi-threaded applications work and are developed. 
