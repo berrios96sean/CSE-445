@@ -2,3 +2,7 @@
 
 SOAP - Application type; use the SOAP protocol -- object access protocol -- uses XML 
 REST - API type - URL access protocol -- uses JSON, XML etc.. 
+
+process == parent 
+thread == child 
+
