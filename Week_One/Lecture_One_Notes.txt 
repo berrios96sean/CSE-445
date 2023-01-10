@@ -1,4 +1,4 @@
 // Introduction 
 
-SOAP - Application type; use the SOAP protocol 
-REST - API type 
+SOAP - Application type; use the SOAP protocol -- object access protocol 
+REST - API type - URL access protocol 
