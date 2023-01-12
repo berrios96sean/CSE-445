@@ -6,3 +6,5 @@ SOAP Protocol Runs on top of the HTTP Protocol
 
 Using SOAP Services you can write client applications any any language
 since the language the service was written in does not matter
+
+Activity 1 Will be due after class and Due on January 20th 
