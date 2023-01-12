@@ -3,3 +3,6 @@ Four tier architecture Contain Services (Make API Calls)
 programmableweb on google has searchable web APIs 
 
 SOAP Protocol Runs on top of the HTTP Protocol 
+
+Using SOAP Services you can write client applications any any language
+since the language the service was written in does not matter
