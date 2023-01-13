@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\bin\Debug\Lecture_Activity_One.exe.config
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\bin\Debug\Lecture_Activity_One.exe
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\bin\Debug\Lecture_Activity_One.pdb
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\obj\Debug\Lecture_Activity_One.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\obj\Debug\Lecture_Activity_One.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\obj\Debug\Lecture_Activity_One.exe
+C:\Repos\CSE-445\Week_One\Lecture_Activity_One\obj\Debug\Lecture_Activity_One.pdb

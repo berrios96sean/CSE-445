@@ -10,6 +10,11 @@ namespace Lecture_Activity_One
     {
         static void Main(string[] args)
         {
+            ServiceReference1.CountryInfoServiceSoapTypeClient mySvr = new ServiceReference1.CountryInfoServiceSoapTypeClient("CountryInfoServiceSoap");
+            String countryName;
+            Console.WriteLine("Please enter a Country Name: ");
+            countryName = Console.ReadLine();
+            String isoCode = mySvr.CountryISOCode(countryName);
         }
     }
 }
