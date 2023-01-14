@@ -12,3 +12,5 @@ The Example folder contains different applications using a simple SOAP webservic
 * [Web App](https://github.com/berrios96sean/CSE-445/tree/main/Week_One/Examples/mathSOAPService)
 
 #### Lecture Notes 
+[Lecture One](https://github.com/berrios96sean/CSE-445/blob/main/Week_One/Lecture_One_Notes.txt)</br>
+fdadf
