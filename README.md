@@ -7,6 +7,7 @@
   
 
 ## Modules 
-* [Week One](https://github.com/berrios96sean/CSE-445/tree/main/Week%20One%20)</br>
+* [Week One](https://github.com/berrios96sean/CSE-445/tree/main/Week_One)</br>
 
 ## All Lecture Notes 
+* [Lecture One](https://github.com/berrios96sean/CSE-445/blob/main/Week_One/Lecture_One_Notes.txt)</br>
