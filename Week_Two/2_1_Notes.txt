@@ -15,6 +15,10 @@ TEXTBOOK Chapter 2
 four different type of computures 
 
 SISD - single instruction single data 
+    * simple computers 
 SIMD - single instruction multi data 
+    * Vector or array computers 
 MISD - multi instruction single data
+    * Fault tolerant computer systems performing redundant computing 
 MIMD - multi instruction multi data
+    * Computers with multi-core processors 
