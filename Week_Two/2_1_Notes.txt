@@ -22,3 +22,13 @@ MISD - multi instruction single data
     * Fault tolerant computer systems performing redundant computing 
 MIMD - multi instruction multi data
     * Computers with multi-core processors 
+
+// Distributive Computing 
+multithreaded programming is seen in languages like Java and C#. 
+
+// XML 
+Extensible markup language, used by SOAP and WSDL to define service that can be 
+transferred and understood between programming languages. 
+
+Is similar in structure to HTML but is used for semantic puposes 
+
