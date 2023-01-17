@@ -37,3 +37,16 @@ Rule 1 : Name tags are case sensitive
 Rule 2 : Every opening tag must have a closing tag
 Rule 3 : Every document must have a root
 Rule 4: Welformed XML document has an xml tag
+
+// WSDL 
+Web service description language 
+
+Four critical aspects of Web services:
+–   Functionality description of the services in standard 
+    taxonomy;
+–   Contract of parameter types and return type of the 
+    function (service) calls;
+–   Binding information about the transport protocol to be 
+    used, usually, SOAP;
+–   Address information for locating the specified service.
+
