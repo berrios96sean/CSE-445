@@ -7,3 +7,14 @@ quiz will be open and will have one week to complete. will be done with lockdown
 
 May not start this week, topic will most likely cover multithreading so read up in text book on this 
 since slides are not released 
+
+TEXTBOOK Chapter 2 
+
+// Computer Architecture classification 
+
+four different type of computures 
+
+SISD - single instruction single data 
+SIMD - single instruction multi data 
+MISD - multi instruction single data
+MIMD - multi instruction multi data
