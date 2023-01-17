@@ -2,3 +2,8 @@
 
 quiz will be open and will have one week to complete. will be done with lockdown browser and webcam. 
 ** Need to set up a quiet time to get this completed 
+
+// Week 2 
+
+May not start this week, topic will most likely cover multithreading so read up in text book on this 
+since slides are not released 
