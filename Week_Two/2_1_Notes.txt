@@ -32,3 +32,8 @@ transferred and understood between programming languages.
 
 Is similar in structure to HTML but is used for semantic puposes 
 
+Some Rules for XML: 
+Rule 1 : Name tags are case sensitive
+Rule 2 : Every opening tag must have a closing tag
+Rule 3 : Every document must have a root
+Rule 4: Welformed XML document has an xml tag
