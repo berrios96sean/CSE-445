@@ -12,22 +12,29 @@ namespace LectureActivityTwoBerriosSean
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public int sumOfDigits(int x)
         {
-            return string.Format("You entered: {0}", value);
+            string temp = x.ToString();
+            char[] arr = temp.ToCharArray();
+            int[] intArr = intArray(arr);
+
+            return intArr[1];
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public int vowelsInString(string str)
         {
-            if (composite == null)
+            return 5; 
+        }
+
+        public int[] intArray(char[] cArr)
+        {
+            int[] temp = new int[cArr.Length];
+            for (int i = 0; i < cArr.Length; i++)
             {
-                throw new ArgumentNullException("composite");
+                temp[i] = cArr[i]; 
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+
+            return temp; 
         }
     }
 }
