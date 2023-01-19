@@ -35,7 +35,12 @@ namespace consoleClientApp
                 }
                 if (selection.Equals("2"))
                 {
-                    Console.WriteLine("2 pressed");
+                    Console.WriteLine("******************************");
+                    Console.WriteLine("Please enter a String:");
+                    string str = Console.ReadLine(); 
+                    int res = mySvc.vowelsInString(str); 
+                    Console.WriteLine("Result = {0}",res);
+                    Console.WriteLine("******************************");
                 }
                 if (selection.Equals("3"))
                 {
