@@ -17,8 +17,8 @@ namespace LectureActivityTwoBerriosSean
             string temp = x.ToString();
             char[] arr = temp.ToCharArray();
             int[] intArr = intArray(arr);
-
-            return intArr[1];
+            int sum = sumOfArray(intArr);
+            return sum;
         }
 
         public int vowelsInString(string str)
@@ -31,10 +31,22 @@ namespace LectureActivityTwoBerriosSean
             int[] temp = new int[cArr.Length];
             for (int i = 0; i < cArr.Length; i++)
             {
-                temp[i] = cArr[i]; 
+                string s = cArr[i].ToString();
+                Int32 x = Int32.Parse(s);
+                temp[i] = x; 
             }
 
             return temp; 
+        }
+
+        public int sumOfArray(int[] arr)
+        {
+            int sum = 0; 
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum = sum + arr[i]; 
+            }
+            return sum; 
         }
     }
 }

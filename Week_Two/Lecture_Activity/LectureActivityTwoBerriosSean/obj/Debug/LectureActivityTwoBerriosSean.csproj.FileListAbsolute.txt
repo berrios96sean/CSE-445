@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\bin\LectureActivityTwoBerriosSean.dll.config
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\bin\LectureActivityTwoBerriosSean.dll
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\bin\LectureActivityTwoBerriosSean.pdb
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\obj\Debug\LectureActivityTwoBerriosSean.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\obj\Debug\LectureActivityTwoBerriosSean.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\obj\Debug\LectureActivityTwoBerriosSean.dll
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\obj\Debug\LectureActivityTwoBerriosSean.pdb
