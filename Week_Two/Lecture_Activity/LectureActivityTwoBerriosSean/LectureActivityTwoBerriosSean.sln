@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LectureActivityTwoBerriosSean", "LectureActivityTwoBerriosSean.csproj", "{33E928E1-8179-4AC0-9FCB-C1CBB452CC04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consoleClientApp", "consoleClientApp\consoleClientApp.csproj", "{8B98166F-4EB5-4117-840E-0C5A8055D7A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{33E928E1-8179-4AC0-9FCB-C1CBB452CC04} = {33E928E1-8179-4AC0-9FCB-C1CBB452CC04}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{33E928E1-8179-4AC0-9FCB-C1CBB452CC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33E928E1-8179-4AC0-9FCB-C1CBB452CC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E928E1-8179-4AC0-9FCB-C1CBB452CC04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B98166F-4EB5-4117-840E-0C5A8055D7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B98166F-4EB5-4117-840E-0C5A8055D7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B98166F-4EB5-4117-840E-0C5A8055D7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B98166F-4EB5-4117-840E-0C5A8055D7A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
