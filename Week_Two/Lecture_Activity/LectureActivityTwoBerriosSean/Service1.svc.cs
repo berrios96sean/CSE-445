@@ -60,9 +60,9 @@ namespace LectureActivityTwoBerriosSean
             int vowels = 0; 
             for (int i = 0; i < cArr.Length; i++)
             {
-                string s = cArr[i].ToString();
-                string lower = s.ToLower(); 
-                if (lower.Equals('a') || lower.Equals('e') || lower.Equals('i') || lower.Equals('o') || lower.Equals('u'))
+                
+                if (cArr[i].Equals('a') || cArr[i].Equals('e') || cArr[i].Equals('i') || cArr[i].Equals('o') || cArr[i].Equals('u')
+                    || cArr[i].Equals('A') || cArr[i].Equals('E') || cArr[i].Equals('I') || cArr[i].Equals('O') || cArr[i].Equals('U'))
                 {
                     vowels++; 
                 }
