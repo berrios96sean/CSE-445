@@ -26,6 +26,7 @@ namespace LectureActivityTwoBerriosSean
             return 5; 
         }
 
+        #region sumOfDigits helper methods 
         public int[] intArray(char[] cArr)
         {
             int[] temp = new int[cArr.Length];
@@ -48,5 +49,6 @@ namespace LectureActivityTwoBerriosSean
             }
             return sum; 
         }
+        #endregion
     }
 }
