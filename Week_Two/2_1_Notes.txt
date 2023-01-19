@@ -50,3 +50,11 @@ Four critical aspects of Web services:
     used, usually, SOAP;
 –   Address information for locating the specified service.
 
+WSDL structure 
+    - definitions 
+    - types 
+    - messages 
+    - portType
+    - binding 
+    - service 
+
