@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\bin\Debug\consoleClientApp.exe.config
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\bin\Debug\consoleClientApp.exe
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\bin\Debug\consoleClientApp.pdb
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\obj\Debug\consoleClientApp.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\obj\Debug\consoleClientApp.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\obj\Debug\consoleClientApp.exe
+C:\Repos\CSE-445\Week_Two\Lecture_Activity\LectureActivityTwoBerriosSean\consoleClientApp\obj\Debug\consoleClientApp.pdb
