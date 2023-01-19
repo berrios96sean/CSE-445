@@ -5,3 +5,6 @@ HW1 will be posted tonight, start working early.
 .NET framework can be created on different platforms 
 
 WCF and ASP .NET are the services we will work with in 445 
+
+[DataContract] --> [DataMember] are defined data and have data items with {get; set;}
+so that you can either get or set the data member. 
