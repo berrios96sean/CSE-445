@@ -14,10 +14,10 @@ namespace LectureActivityTwoBerriosSean
     {
 
         [OperationContract]
-        string GetData(int value);
+        int sumOfDigits(int x);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        int vowelsInString(string str); 
 
         // TODO: Add your service operations here
     }
