@@ -23,7 +23,9 @@ namespace LectureActivityTwoBerriosSean
 
         public int vowelsInString(string str)
         {
-            return 5; 
+            char[] cArr = str.ToCharArray();
+            int numOfVowels = findVowels(cArr);
+            return numOfVowels; 
         }
 
         #region sumOfDigits helper methods 
@@ -48,6 +50,25 @@ namespace LectureActivityTwoBerriosSean
                 sum = sum + arr[i]; 
             }
             return sum; 
+        }
+        #endregion
+
+        #region vowelsInString helper methods 
+
+        public int findVowels(char[] cArr)
+        {
+            int vowels = 0; 
+            for (int i = 0; i < cArr.Length; i++)
+            {
+                string s = cArr[i].ToString();
+                string lower = s.ToLower(); 
+                if (lower.Equals('a') || lower.Equals('e') || lower.Equals('i') || lower.Equals('o') || lower.Equals('u'))
+                {
+                    vowels++; 
+                }
+            }
+
+            return vowels; 
         }
         #endregion
     }
