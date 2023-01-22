@@ -14,7 +14,7 @@ namespace A1Berrios_Sean_Part1
     {
         public int wordCount(string str)
         {
-            return str.Split('.').Length;
+            return str.Replace("."," ").Split(' ').Length;
         }
 
         public stringStatistics analyzeStr(string str)
