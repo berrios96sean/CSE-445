@@ -28,15 +28,15 @@ namespace A1Berrios_Sean_Part1
     public class stringStatistics
     {
         [DataMember]
-        int upperCaseCount { get; set; }
+        public int upperCaseCount { get; set; }
 
         [DataMember]
-        int lowerCaseCount { get; set; }
+        public int lowerCaseCount { get; set; }
 
         [DataMember]
-        int digitCount { get; set; }
+        public int digitCount { get; set; }
 
         [DataMember]
-        int vowelCount { get; set; }
+        public int vowelCount { get; set; }
     }
 }
