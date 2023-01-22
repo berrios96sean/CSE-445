@@ -1,0 +1,2 @@
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\obj\Debug\A1Berrios_Sean_Part1.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\obj\Debug\A1Berrios_Sean_Part1.csproj.CoreCompileInputs.cache
