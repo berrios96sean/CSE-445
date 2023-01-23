@@ -25,10 +25,15 @@ namespace windowsFormsClient
         private void button1_Click(object sender, EventArgs e)
         {
             ServiceReference1.Service1Client mySvc = new ServiceReference1.Service1Client();
-            string upper, lower, digits, vowels;
+            ServiceReference1.stringStatistics stats = new ServiceReference1.stringStatistics();
             int words;
             words = mySvc.wordCount(textBox1.Text);
-            upper = mySvc 
+            stats = mySvc.analyzeStr(textBox1.Text);
+            textBox2.Text = words.ToString();
+            textBox3.Text = stats.upperCaseCount.ToString();
+            textBox4.Text = stats.lowerCaseCount.ToString();
+            textBox5.Text = stats.digitCount.ToString();
+            textBox6.Text = stats.vowelCount.ToString(); 
         }
     }
 }

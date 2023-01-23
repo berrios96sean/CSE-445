@@ -1,0 +1,10 @@
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\bin\Debug\windowsFormsClient.exe.config
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\bin\Debug\windowsFormsClient.exe
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\bin\Debug\windowsFormsClient.pdb
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.Form1.resources
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.Properties.Resources.resources
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.csproj.GenerateResource.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.exe
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part1\windowsFormsClient\obj\Debug\windowsFormsClient.pdb
