@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "windowsFormsClient", "windo
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webAppClient", "webAppClient\webAppClient.csproj", "{D4AC6116-141E-47F4-BCF1-19D91ECF3C83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0F4C02F-B14E-4D3C-8BB8-3EE6DED304C2} = {E0F4C02F-B14E-4D3C-8BB8-3EE6DED304C2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
