@@ -67,3 +67,23 @@ shutdown() shutdowns executor but lets all threads finish executing
 shutdownnow() shutdowns threads and terminates execution of all remaining threads 
 
 // Value returning threads use callable interface 
+
+need to specify what data type you are returning from the thread. 
+
+import java.util.concurrent.Callable;
+public class ThreadACallable implements Callable<String>{
+private String name;
+public ThreadACallable(String n)
+{
+name = n;
+}
+@Override
+ public String call() throws Exception
+ {
+ Thread.sleep(1000);
+ //return the given thread name executing this callable task
+ return name;
+ // We can return the system thread name using this method
+ //return Thread.currentThread().getName();
+ }
+}
