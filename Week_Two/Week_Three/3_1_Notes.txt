@@ -3,3 +3,8 @@
 Need to start working on Part 2, get more clarification on what the deliverables are for this 
 project. It is due next week so should try to get done by friday. 
 
+Multithreading has more than one function that is running in parrallell. 
+
+Need to use locking mechanisms to ensure threads do not violate shared memory contraints. 
+
+// Implementation of threads in Java 
