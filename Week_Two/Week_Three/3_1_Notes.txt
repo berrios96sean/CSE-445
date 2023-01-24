@@ -8,3 +8,16 @@ Multithreading has more than one function that is running in parrallell.
 Need to use locking mechanisms to ensure threads do not violate shared memory contraints. 
 
 // Implementation of threads in Java 
+can implement a thread as a callable interface so that when it completes a task it returns a value
+
+public class ThreadA extends Thread{
+private String name;
+public ThreadA(String name)
+{
+this.name=name;
+}
+public void run()
+{
+ System.out.println("hello from :" + name);
+}
+}
