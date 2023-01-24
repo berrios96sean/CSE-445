@@ -62,3 +62,5 @@ public class SimpleThreadPool {
 }
 
 can create an executor using javas "ExecutorService" 
+
+// Value returning threads use callable interface 
