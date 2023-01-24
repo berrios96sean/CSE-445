@@ -60,3 +60,5 @@ public class SimpleThreadPool {
  System.out.println("Finished all threads");
  }
 }
+
+can create an executor using javas "ExecutorService" 
