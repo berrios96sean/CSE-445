@@ -69,6 +69,7 @@ shutdownnow() shutdowns threads and terminates execution of all remaining thread
 // Value returning threads use callable interface 
 
 need to specify what data type you are returning from the thread. 
+Can due this using a Future<data type> object 
 
 import java.util.concurrent.Callable;
 public class ThreadACallable implements Callable<String>{
