@@ -1,0 +1,5 @@
+// Multithreading 
+
+Need to start working on Part 2, get more clarification on what the deliverables are for this 
+project. It is due next week so should try to get done by friday. 
+
