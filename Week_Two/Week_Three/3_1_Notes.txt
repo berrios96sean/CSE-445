@@ -88,3 +88,5 @@ name = n;
  //return Thread.currentThread().getName();
  }
 }
+
+Before next class run through the Multithreading example codes 
