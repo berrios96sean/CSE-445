@@ -21,3 +21,42 @@ public void run()
  System.out.println("hello from :" + name);
 }
 }
+
+A thread class automatically becomes a thread. A runnable interface needs to be created into a thread 
+example below 
+
+import java.lang.Runnable;
+public class ThreadB implements Runnable{
+private String name;
+public ThreadB(String name)
+{
+this.name=name;
+}
+public void run()
+{
+ System.out.println("hello from :" + name);
+}
+}
+
+// Thread Pool  
+
+Can exucute a large number of threads in parrallell 
+
+create all the threads, then create a dispatcher that can execute a number of threads at a given time 
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+public class SimpleThreadPool {
+ public static void main(String[] args) {
+ ExecutorService executor = Executors.newFixedThreadPool(5);
+ for (int i = 0; i < 10; i++) {
+ String name = "B " + i;
+ Runnable worker = new ThreadB(name);
+ executor.execute(worker);
+ }
+ executor.shutdown();
+ while (!executor.isTerminated()) {
+ }
+ System.out.println("Finished all threads");
+ }
+}
