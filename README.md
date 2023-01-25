@@ -18,3 +18,6 @@
 * [Lecture Three](https://github.com/berrios96sean/CSE-445/blob/main/Week_Two/2_1_Notes.txt)</br>
 * [Lecture Four](https://github.com/berrios96sean/CSE-445/blob/main/Week_Two/2_2_Notes.txt)</br>
 * [Lecture Five]()</br>
+
+## Assignments 
+[Assignment One](https://github.com/berrios96sean/CSE-445/tree/main/Assignments/A1Berrios_Sean_Part1)<br/>
