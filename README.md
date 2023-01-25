@@ -20,4 +20,4 @@
 * [Lecture Five]()</br>
 
 ## Assignments 
-[Assignment One](https://github.com/berrios96sean/CSE-445/tree/main/Assignments/A1Berrios_Sean_Part1)<br/>
+* [Assignment One](https://github.com/berrios96sean/CSE-445/tree/main/Assignments/A1Berrios_Sean_Part1)<br/>
