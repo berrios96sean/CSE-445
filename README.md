@@ -7,7 +7,7 @@
   
 
 ## Modules 
-* [Assignments]()<br/>
+* [Assignments](https://github.com/berrios96sean/CSE-445/tree/main/Assignments)<br/>
 * [Week One](https://github.com/berrios96sean/CSE-445/tree/main/Week_One)</br>
 * [Week Two](https://github.com/berrios96sean/CSE-445/tree/main/Week_Two)</br>
 * [Week Three](https://github.com/berrios96sean/CSE-445/tree/main/Week_Three)</br>
