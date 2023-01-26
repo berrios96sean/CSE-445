@@ -40,5 +40,12 @@ namespace webClient
         {
             receivedMessage.Text = encryptMessage;
         }
+
+        protected void decryptButton_Click(object sender, EventArgs e)
+        {
+            ServiceReference2.ServiceClient mySvc = new ServiceReference2.ServiceClient("BasicHttpsBinding_IService");
+            string decryptMessage = mySvc.Decrypt(encryptMessage);
+            decryptedMessage.Text = decryptMessage;
+        }
     }
 }

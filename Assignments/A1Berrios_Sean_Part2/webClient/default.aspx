@@ -56,7 +56,7 @@
             <asp:Label ID="receivedMessage" runat="server" Text="receivedMessage"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="decryptButton" runat="server" Text="Decrypt" />
+            <asp:Button ID="decryptButton" runat="server" OnClick="decryptButton_Click" Text="Decrypt" />
             <br />
             <br />
             <asp:Label ID="decryptedMessage" runat="server" Text="Decrypted Message"></asp:Label>
