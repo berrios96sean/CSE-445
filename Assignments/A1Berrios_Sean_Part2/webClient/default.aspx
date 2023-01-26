@@ -62,6 +62,9 @@
             <asp:Label ID="decryptedMessage" runat="server" Text="Decrypted Message"></asp:Label>
             <br />
             <br />
+            3. Image Verifier
+            <br />
+            <br />
         </div>
     </form>
 </body>
