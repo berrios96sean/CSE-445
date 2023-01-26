@@ -71,8 +71,8 @@
             <asp:Image ID="Image1" runat="server" ImageAlign="Left" />
             <br />
             <br />
-            Enter Image Text
             <br />
+            Enter Image Text <br />
             <asp:TextBox ID="imageTextInput" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Submit" />

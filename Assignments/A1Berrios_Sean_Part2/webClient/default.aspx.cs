@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Text;
 
 namespace webClient
 {
     public partial class _default : System.Web.UI.Page
     {
         public static string encryptMessage;
-        public static string imgText;
+        public static string verifierString; 
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -56,22 +57,33 @@ namespace webClient
         {
             Image1.Visible = true;
             ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
-            Stream stream = mySvc.GetImage(imageInputLength.Text);
-            StreamReader reader = new StreamReader(stream);
-            imgText = reader.ReadToEnd();
-            System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
+            string length = imageInputLength.Text;
+            verifierString = mySvc.GetVerifierString(length);
+            Stream stream = mySvc.GetImage(verifierString);
+            //StreamReader reader = new StreamReader(stream);
+            //imgText = reader.ReadToEnd();
+            image = System.Drawing.Image.FromStream(stream);
             MemoryStream ms = new MemoryStream();
             image.Save(ms, ImageFormat.Jpeg);
             System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
             Image1.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(ms.ToArray());
-            
+            imgText = Image1.ToString();
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
-            submitResult.Text = mySvc.GetVerifierString(imageTextInput.Text);
-            
+            string inputLength = imageTextInput.Text.Length.ToString();
+            submitResult.Text = inputLength;
+            /*
+            if (imageTextInput.Text == imgText)
+            {
+                submitResult.Text = "Correct!";
+            }
+            else
+            {
+                submitResult.Text = "Your answer is not correct. Please try again.";
+            }*/
         }
     }
 }
