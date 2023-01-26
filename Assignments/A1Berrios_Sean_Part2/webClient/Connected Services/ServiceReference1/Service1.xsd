@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/A1Berrios_Sean_Part2" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/A1Berrios_Sean_Part2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="stringStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="digitCount" type="xs:int" />
+      <xs:element minOccurs="0" name="lowerCaseCount" type="xs:int" />
+      <xs:element minOccurs="0" name="upperCaseCount" type="xs:int" />
+      <xs:element minOccurs="0" name="vowelCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="stringStatistics" nillable="true" type="tns:stringStatistics" />
+</xs:schema>

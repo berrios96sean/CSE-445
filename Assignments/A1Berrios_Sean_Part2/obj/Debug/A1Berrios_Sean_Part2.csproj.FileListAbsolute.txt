@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\bin\A1Berrios_Sean_Part2.dll.config
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\bin\A1Berrios_Sean_Part2.dll
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\bin\A1Berrios_Sean_Part2.pdb
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\obj\Debug\A1Berrios_Sean_Part2.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\obj\Debug\A1Berrios_Sean_Part2.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\obj\Debug\A1Berrios_Sean_Part2.dll
+C:\Repos\CSE-445\Assignments\A1Berrios_Sean_Part2\obj\Debug\A1Berrios_Sean_Part2.pdb

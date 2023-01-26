@@ -54,3 +54,4 @@ namespace A1Berrios_Sean_Part2
             return new stringStatistics { upperCaseCount = upper, lowerCaseCount = lower, digitCount = digits, vowelCount = vowels };
         }
     }
+}
