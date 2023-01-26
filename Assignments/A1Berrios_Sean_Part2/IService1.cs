@@ -14,10 +14,10 @@ namespace A1Berrios_Sean_Part2
     {
 
         [OperationContract]
-        string GetData(int value);
+        int wordCount(string str);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        stringStatistics analyzeStr(string str);
 
         // TODO: Add your service operations here
     }
@@ -25,23 +25,18 @@ namespace A1Berrios_Sean_Part2
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class stringStatistics
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [DataMember]
+        public int upperCaseCount { get; set; }
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        public int lowerCaseCount { get; set; }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public int digitCount { get; set; }
+
+        [DataMember]
+        public int vowelCount { get; set; }
     }
 }
