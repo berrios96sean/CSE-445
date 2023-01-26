@@ -35,6 +35,33 @@
             <br />
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             <br />
+            <br />
+            2. Encryption/Decryption<br />
+            <br />
+            Enter String<br />
+            <asp:TextBox ID="textToEncrypt" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="encryptButton" runat="server" OnClick="encryptButton_Click" Text="Encrypt" />
+            <br />
+            <br />
+            <asp:Label ID="encryptedMessage" runat="server" Text="Encrypted Message"></asp:Label>
+&nbsp;<br />
+            <br />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Send to to Receiver " Width="138px" />
+            <br />
+            <br />
+            This Message was Received<br />
+            <br />
+            <asp:Label ID="receivedMessage" runat="server" Text="receivedMessage"></asp:Label>
+            <br />
+            <br />
+            <asp:Button ID="decryptButton" runat="server" Text="Decrypt" />
+            <br />
+            <br />
+            <asp:Label ID="decryptedMessage" runat="server" Text="Decrypted Message"></asp:Label>
+            <br />
+            <br />
         </div>
     </form>
 </body>

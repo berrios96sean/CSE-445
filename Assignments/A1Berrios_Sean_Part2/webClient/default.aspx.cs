@@ -9,6 +9,7 @@ namespace webClient
 {
     public partial class _default : System.Web.UI.Page
     {
+        public static string encryptMessage; 
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +26,19 @@ namespace webClient
             TextBox4.Text = stats.lowerCaseCount.ToString();
             TextBox5.Text = stats.digitCount.ToString();
             TextBox6.Text = stats.vowelCount.ToString();
+        }
+
+        protected void encryptButton_Click(object sender, EventArgs e)
+        {
+            ServiceReference2.ServiceClient mySvc = new ServiceReference2.ServiceClient("BasicHttpsBinding_IService");
+            encryptMessage =  mySvc.Encrypt(textToEncrypt.Text);
+            encryptedMessage.Text = encryptMessage;
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            receivedMessage.Text = encryptMessage;
         }
     }
 }
