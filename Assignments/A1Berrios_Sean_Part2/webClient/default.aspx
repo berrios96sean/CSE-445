@@ -65,6 +65,17 @@
             3. Image Verifier
             <br />
             <br />
+            <asp:Label ID="Label4" runat="server" Text="Image String Length"></asp:Label>
+            <br />
+            <asp:TextBox ID="imageInputLength" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="showImage" runat="server" OnClick="showImage_Click" Text="Show Image" />
+            <br />
+            <br />
+            <asp:Image ID="Image1" runat="server" ImageAlign="Left" />
+            <br />
+            <br />
         </div>
     </form>
 </body>

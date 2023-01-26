@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace webClient
 {
@@ -46,6 +49,22 @@ namespace webClient
             ServiceReference2.ServiceClient mySvc = new ServiceReference2.ServiceClient("BasicHttpsBinding_IService");
             string decryptMessage = mySvc.Decrypt(encryptMessage);
             decryptedMessage.Text = decryptMessage;
+        }
+
+        protected void showImage_Click(object sender, EventArgs e)
+        {
+            Image1.Visible = true;
+            ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
+            Stream stream = mySvc.GetImage(imageInputLength.Text);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, ImageFormat.Jpeg);
+            System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
+            Image1.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(ms.ToArray());
+           
+           
+            
+
         }
     }
 }
