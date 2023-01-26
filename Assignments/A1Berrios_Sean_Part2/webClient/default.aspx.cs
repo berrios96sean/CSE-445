@@ -12,7 +12,8 @@ namespace webClient
 {
     public partial class _default : System.Web.UI.Page
     {
-        public static string encryptMessage; 
+        public static string encryptMessage;
+        public static string imgText;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -56,18 +57,21 @@ namespace webClient
             Image1.Visible = true;
             ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
             Stream stream = mySvc.GetImage(imageInputLength.Text);
+            StreamReader reader = new StreamReader(stream);
+            imgText = reader.ReadToEnd();
             System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
             MemoryStream ms = new MemoryStream();
             image.Save(ms, ImageFormat.Jpeg);
             System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
             Image1.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(ms.ToArray());
-          
+            
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
             submitResult.Text = mySvc.GetVerifierString(imageTextInput.Text);
+            
         }
     }
 }
