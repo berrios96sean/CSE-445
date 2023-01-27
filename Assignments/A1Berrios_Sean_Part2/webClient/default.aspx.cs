@@ -8,6 +8,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
+using System.Net;
 
 namespace webClient
 {
@@ -81,6 +82,18 @@ namespace webClient
             {
                 submitResult.Text = "Your answer is not correct. Please try again.";
             }
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            string latitude = lat.Text;
+            string longg = longitude.Text; 
+            string baseURL = "http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longg+"&appid=28838047891743ba0fa0fcc3174e73b3";
+            Uri ServivrUri = new Uri(baseURL);
+            WebClient proxy = new WebClient();
+            byte[] abc = proxy.DownloadData(ServivrUri);
+            string str = System.Text.UTF8Encoding.UTF8.GetString(abc);
+            jsonResponse.Text = str; 
         }
     }
 }

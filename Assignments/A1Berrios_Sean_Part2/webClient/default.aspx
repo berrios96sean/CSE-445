@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text="1. String Analyzer"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Text="Enter String"></asp:Label>
@@ -72,13 +73,33 @@
             <br />
             <br />
             <br />
-            Enter Image Text <br />
+            Enter Image Text
+            <br />
             <asp:TextBox ID="imageTextInput" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Submit" />
             <br />
             <br />
             <asp:Label ID="submitResult" runat="server" Text="Result"></asp:Label>
+            <br />
+            <br />
+            <br />
+            4. Weather API
+            <br />
+            <br />
+            Enter Latitude
+            <br />
+            <asp:TextBox ID="lat" runat="server"></asp:TextBox>
+            <br />
+            Enter Longitude<br />
+            <asp:TextBox ID="longitude" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Submit" />
+            <br />
+            <br />
+            <asp:Label ID="jsonResponse" runat="server" Text="JSON Response"></asp:Label>
+            <br />
+            <br />
             <br />
         </div>
     </form>
