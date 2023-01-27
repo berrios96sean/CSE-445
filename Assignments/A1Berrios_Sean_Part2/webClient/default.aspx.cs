@@ -62,28 +62,25 @@ namespace webClient
             Stream stream = mySvc.GetImage(verifierString);
             //StreamReader reader = new StreamReader(stream);
             //imgText = reader.ReadToEnd();
-            image = System.Drawing.Image.FromStream(stream);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(stream);
             MemoryStream ms = new MemoryStream();
             image.Save(ms, ImageFormat.Jpeg);
             System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
             Image1.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(ms.ToArray());
-            imgText = Image1.ToString();
+
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             ServiceReference3.ServiceClient mySvc = new ServiceReference3.ServiceClient("BasicHttpsBinding_IService1");
-            string inputLength = imageTextInput.Text.Length.ToString();
-            submitResult.Text = inputLength;
-            /*
-            if (imageTextInput.Text == imgText)
+            if (imageTextInput.Text == verifierString)
             {
                 submitResult.Text = "Correct!";
             }
             else
             {
                 submitResult.Text = "Your answer is not correct. Please try again.";
-            }*/
+            }
         }
     }
 }
