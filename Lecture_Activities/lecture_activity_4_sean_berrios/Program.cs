@@ -11,8 +11,18 @@ namespace lecture_activity_4_sean_berrios
         static void Main(string[] args)
         {
             // create an object instance of the string analyzer class 
+            StringAnalyzer stA = new StringAnalyzer();
             // call the read string method of the string analyzer class 
+            stA.anaylzeString();
+            //Console.WriteLine("String is: "+stA.getInput());
             // create three threads to count digits, count uppercase and determine 
+            DigitCount dct = new DigitCount(stA.getInput());
+            Thread thread = new Thread(new ThreadStart(dct.Run));
+            thread.Start();
+            thread.Join();
+
+            int count = dct.getCount();
+            Console.WriteLine("Digit Count = "+count);
             // if the string is a palindrome 
             // start threads 
             // wait for all the threads to complete 
@@ -25,7 +35,7 @@ namespace lecture_activity_4_sean_berrios
     {
         String inputStr; 
 
-        public void anaylzeString(String str)
+        public void anaylzeString()
         {
             Console.WriteLine("Please Enter a String");
             String input = Console.ReadLine();

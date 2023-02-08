@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\bin\Debug\lecture_activity_4_sean_berrios.exe.config
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\bin\Debug\lecture_activity_4_sean_berrios.exe
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\bin\Debug\lecture_activity_4_sean_berrios.pdb
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\obj\Debug\lecture_activity_4_sean_berrios.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\obj\Debug\lecture_activity_4_sean_berrios.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\obj\Debug\lecture_activity_4_sean_berrios.exe
+C:\Repos\CSE-445\Lecture_Activities\lecture_activity_4_sean_berrios\obj\Debug\lecture_activity_4_sean_berrios.pdb
