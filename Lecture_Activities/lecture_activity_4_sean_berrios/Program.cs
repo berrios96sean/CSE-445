@@ -17,9 +17,9 @@ namespace lecture_activity_4_sean_berrios
             //Console.WriteLine("String is: "+stA.getInput());
             // create three threads to count digits, count uppercase and determine 
             DigitCount dct = new DigitCount(stA.getInput());
-            Thread thread = new Thread(new ThreadStart(dct.Run));
-            thread.Start();
-            thread.Join();
+            Thread dctThread = new Thread(new ThreadStart(dct.Run));
+            dctThread.Start();
+            dctThread.Join();
 
             int count = dct.getCount();
             Console.WriteLine("Digit Count = "+count);
@@ -80,4 +80,62 @@ namespace lecture_activity_4_sean_berrios
     }
     #endregion
 
+    #region Upper Case Class
+    class UpperCase
+    {
+        int count = 0;
+        string str;
+
+        public UpperCase(String str)
+        {
+            this.str = str;
+        }
+
+        public void Run()
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (char.IsUpper(str[i]))
+                {
+                    this.count++;
+                }
+            }
+        }
+
+        public int getCount()
+        {
+            return this.count;
+        }
+    }
+    #endregion
+
+    #region IsPalindrome Class 
+    class isPalindrome
+    {
+        bool palindrome = false; 
+        string str;
+
+        public isPalindrome(String str)
+        {
+            this.str = str;
+        }
+
+        public void Run()
+        {
+            for (int i = 0; i < (str.Length)/2; i++)
+            {
+                if (str[i] == str[str.Length - i - 1])
+                {
+                    palindrome = true;
+                    break; 
+                }
+            }
+        }
+
+        public bool result()
+        {
+            return this.palindrome;
+        }
+    }
+    #endregion
 }
