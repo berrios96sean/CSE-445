@@ -17,12 +17,25 @@ namespace lecture_activity_4_sean_berrios
             //Console.WriteLine("String is: "+stA.getInput());
             // create three threads to count digits, count uppercase and determine 
             DigitCount dct = new DigitCount(stA.getInput());
+            UpperCase uct = new UpperCase(stA.getInput());
+            isPalindrome ipt = new isPalindrome(stA.getInput()); 
             Thread dctThread = new Thread(new ThreadStart(dct.Run));
+            Thread uctThread = new Thread(new ThreadStart(uct.Run));
+            Thread iptThread = new Thread(new ThreadStart(ipt.Run)); 
+
             dctThread.Start();
+            uctThread.Start();
+            iptThread.Start(); 
             dctThread.Join();
+            uctThread.Join();
+            iptThread.Join(); 
 
             int count = dct.getCount();
+            int upperCount = uct.getCount();
+            bool result = ipt.result(); 
             Console.WriteLine("Digit Count = "+count);
+            Console.WriteLine("Upper Case Count = " + upperCount);
+            Console.WriteLine("Digit Count = " + result);
             // if the string is a palindrome 
             // start threads 
             // wait for all the threads to complete 
