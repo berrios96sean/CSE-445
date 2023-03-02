@@ -62,7 +62,7 @@ namespace A2Berrios_Sean
         private int cardNum;
         // Use thread name 
         private String receiverID;
-        private int amount;
+        private double amount;
         #endregion
 
         #region Constructors 
@@ -73,7 +73,7 @@ namespace A2Berrios_Sean
         }
 
         // Setting the variables in a constructor since variables are private
-        public OrderClass(String senderID, int cardNum, String receiverID, int amount)
+        public OrderClass(String senderID, int cardNum, String receiverID, double amount)
         {
             this.senderID = senderID;
             this.cardNum = cardNum;
@@ -99,7 +99,7 @@ namespace A2Berrios_Sean
             return this.receiverID; 
         }
 
-        public int GetAmount()
+        public double GetAmount()
         {
             return this.amount; 
         }
@@ -121,7 +121,24 @@ namespace A2Berrios_Sean
 
     class Encoder
     {
+        #region Public Methods 
 
+        public String encode(OrderClass order)
+        {
+            try
+            {
+                String str = String.Format("{0},{1},{2},{3}", order.GetSenderId(), order.GetCardNum(), order.GetReceiverID(), order.GetAmount());
+                byte[] byteArray = Encoding.UTF8.GetBytes(str);
+                String encodedString = Convert.ToBase64String(byteArray);
+                return encodedString;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: "+ e.Message);
+            }
+            return null; 
+        }
+        #endregion
     }
 
     #endregion
@@ -130,7 +147,24 @@ namespace A2Berrios_Sean
 
     class Decoder
     {
+        public OrderClass decodeString(String encodedString)
+        {
+            try
+            {
+                byte[] byteArray = Convert.FromBase64String(encodedString);
+                String decodedString = Encoding.UTF8.GetString(byteArray);
+                //Console.WriteLine("Decoded String = {0}",decodedString);
+                String[] splitString = decodedString.Split(',');
 
+                OrderClass decodedOrder = new OrderClass(splitString[0], int.Parse(splitString[1]), splitString[2], double.Parse(splitString[3]));
+                return decodedOrder;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: "+ e.Message);
+            }
+            return null; 
+        }
     }
 
     #endregion
@@ -141,6 +175,17 @@ namespace A2Berrios_Sean
     {
         static void Main(string[] args)
         {
+            OrderClass test = new OrderClass("Sean", 12345, "bob", 345.43);
+            Encoder enc = new Encoder();
+            Decoder dcr = new Decoder();
+
+            String encoded = enc.encode(test);
+            Console.WriteLine("Encoded String = {0}", encoded);
+
+            OrderClass newOrder = dcr.decodeString(encoded);
+
+            Console.WriteLine("New Instace = sender: {0} \n card: {1} \n receiver: {2} \n amount: {3}",newOrder.GetSenderId(),newOrder.GetCardNum(),newOrder.GetReceiverID(), newOrder.GetAmount());
+
         }
     }
 
