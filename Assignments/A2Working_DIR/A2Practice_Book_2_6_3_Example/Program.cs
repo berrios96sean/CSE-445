@@ -26,6 +26,19 @@ namespace A2Practice_Book_2_6_3_Example
         {
             return chickenPrice;
         }
+        public static void changePrice(Int32 price)
+        {
+            if (price < chickenPrice)
+            {
+                // if there is at least one subscriber 
+                if (priceCut != null)
+                {
+                    // change price for subscribers 
+                    priceCut(price);
+                }
+            }
+            chickenPrice = price; 
+        }
         #endregion
     }
     #endregion
