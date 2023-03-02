@@ -26,6 +26,7 @@ namespace A2Practice_Book_2_6_3_Example
         {
             return chickenPrice;
         }
+        
         public static void changePrice(Int32 price)
         {
             if (price < chickenPrice)
@@ -38,6 +39,17 @@ namespace A2Practice_Book_2_6_3_Example
                 }
             }
             chickenPrice = price; 
+        }
+        
+        public void farmerFunc()
+        {
+            for (Int32 i = 0; i < 50; i++)
+            {
+                Thread.Sleep(500);
+                Int32 p = rng.Next(5, 10);
+                Console.WriteLine("New Price is: {0}", p);
+                ChickenFarm.changePrice(p);
+            }
         }
         #endregion
     }
