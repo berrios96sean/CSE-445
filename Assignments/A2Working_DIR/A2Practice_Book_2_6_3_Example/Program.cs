@@ -54,6 +54,33 @@ namespace A2Practice_Book_2_6_3_Example
         #endregion
     }
     #endregion
+
+    #region Retailer Class
+
+    public class Retailer
+    {
+        #region Methods for Retailer
+        public void retailerFunc()
+        {
+            ChickenFarm chicken = new ChickenFarm(); 
+            for (Int32 i = 0; i < 10; i++)
+            {
+                Thread.Sleep(1000);
+                Int32 p = chicken.getPrice();
+                Console.WriteLine("Store: {0} had everyday low price: ${1} each.",Thread.CurrentThread.Name,p);
+            }
+        }
+
+        public void chickenOnSale(Int32 p)
+        {
+            Console.WriteLine("Thread: {0} Chickens are on sale: as low as ${1} each",Thread.CurrentThread.Name, p);
+        }
+
+        #endregion
+    }
+    #endregion
+
+
     class Program
     {
         static void Main(string[] args)
