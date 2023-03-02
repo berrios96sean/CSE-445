@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\bin\Debug\A2Practice_Book_2_6_3_Example.exe.config
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\bin\Debug\A2Practice_Book_2_6_3_Example.exe
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\bin\Debug\A2Practice_Book_2_6_3_Example.pdb
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\obj\Debug\A2Practice_Book_2_6_3_Example.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\obj\Debug\A2Practice_Book_2_6_3_Example.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\obj\Debug\A2Practice_Book_2_6_3_Example.exe
+C:\Repos\CSE-445\Assignments\A2Working_DIR\A2Practice_Book_2_6_3_Example\obj\Debug\A2Practice_Book_2_6_3_Example.pdb
