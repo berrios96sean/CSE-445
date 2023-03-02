@@ -175,6 +175,11 @@ namespace A2Berrios_Sean
     {
         static void Main(string[] args)
         {
+            testDecoderEncoder();
+        }
+
+        public static void testDecoderEncoder()
+        {
             OrderClass test = new OrderClass("Sean", 12345, "bob", 345.43);
             Encoder enc = new Encoder();
             Decoder dcr = new Decoder();
@@ -184,7 +189,7 @@ namespace A2Berrios_Sean
 
             OrderClass newOrder = dcr.decodeString(encoded);
 
-            Console.WriteLine("New Instace = sender: {0} \n card: {1} \n receiver: {2} \n amount: {3}",newOrder.GetSenderId(),newOrder.GetCardNum(),newOrder.GetReceiverID(), newOrder.GetAmount());
+            Console.WriteLine("New Instace = sender: {0} \n card: {1} \n receiver: {2} \n amount: {3}", newOrder.GetSenderId(), newOrder.GetCardNum(), newOrder.GetReceiverID(), newOrder.GetAmount());
 
         }
     }
