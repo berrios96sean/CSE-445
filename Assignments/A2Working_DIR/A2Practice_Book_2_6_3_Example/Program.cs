@@ -12,6 +12,21 @@ namespace A2Practice_Book_2_6_3_Example
     // This allows us to reference any number of methods that match this signature and handle price cut events with different price cuts,
     // without needing to define multiple event handlers with similar but slightly different signatures.
     public delegate void priceCutEvent(Int32 pr); 
+
+    public class ChickenFarm
+    {
+        static Random rng = new Random();
+        // Initialize an event for the delegate method 
+        public static event priceCutEvent priceCut;
+        private static Int32 chickenPrice = 10;
+
+        #region Methods for Chicken Farm Class
+        public Int32 getPrice()
+        {
+            return chickenPrice;
+        }
+        #endregion
+    }
     class Program
     {
         static void Main(string[] args)
