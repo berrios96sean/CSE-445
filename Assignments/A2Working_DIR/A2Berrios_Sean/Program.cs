@@ -28,6 +28,7 @@ namespace A2Berrios_Sean
 
     class PricingModel
     {
+        Random rand = new Random(); 
 
     }
 
@@ -55,7 +56,12 @@ namespace A2Berrios_Sean
 
     class OrderClass
     {
-
+        #region Private Variables 
+        private int senderID;
+        private int cardNum;
+        private int receiverID;
+        private int amount;
+        #endregion
     }
 
     #endregion
