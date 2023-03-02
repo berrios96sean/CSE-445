@@ -80,11 +80,25 @@ namespace A2Practice_Book_2_6_3_Example
     }
     #endregion
 
-
+    #region Main Program class
     class Program
     {
         static void Main(string[] args)
         {
+            ChickenFarm chicken = new ChickenFarm();
+            Thread farmer = new Thread(new ThreadStart(chicken.farmerFunc));
+            farmer.Start();
+            farmer.Name = "farmer";
+            Retailer chickenStore = new Retailer();
+            ChickenFarm.priceCut += new priceCutEvent(chickenStore.chickenOnSale);
+            Thread[] retailers = new Thread[3]; 
+            for (int i = 0; i < 3; i++)
+            {
+                retailers[i] = new Thread(new ThreadStart(chickenStore.retailerFunc));
+                retailers[i].Name = (i + 1).ToString();
+                retailers[i].Start();
+            }
         }
     }
+    #endregion
 }
