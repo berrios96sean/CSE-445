@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace A2Berrios_Sean
 {
+
+    #region Delegates for Events 
+    
+    public delegate void priceCutEvent(Int32 price);
+    public delegate void orderProcessedEvent();
+    public delegate void orderReceivedEvent();
+    public delegate void priceModelEvent(); 
+    
+    #endregion
+
     #region Airline class
     class Airline
     {
