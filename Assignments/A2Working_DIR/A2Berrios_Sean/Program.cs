@@ -57,10 +57,52 @@ namespace A2Berrios_Sean
     class OrderClass
     {
         #region Private Variables 
-        private int senderID;
+        // Use thread name 
+        private String senderID;
         private int cardNum;
-        private int receiverID;
+        // Use thread name 
+        private String receiverID;
         private int amount;
+        #endregion
+
+        #region Constructors 
+
+        public OrderClass()
+        {
+
+        }
+
+        // Setting the variables in a constructor since variables are private
+        public OrderClass(String senderID, int cardNum, String receiverID, int amount)
+        {
+            this.senderID = senderID;
+            this.cardNum = cardNum;
+            this.receiverID = receiverID;
+            this.amount = amount; 
+        }
+        #endregion
+
+        #region Public Methods 
+
+        public String GetSenderId()
+        {
+            return this.senderID; 
+        }
+
+        public int GetCardNum()
+        {
+            return this.cardNum;
+        }
+
+        public String GetReceiverID()
+        {
+            return this.receiverID; 
+        }
+
+        public int GetAmount()
+        {
+            return this.amount; 
+        }
         #endregion
     }
 
