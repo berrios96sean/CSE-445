@@ -28,7 +28,29 @@ namespace A2Berrios_Sean
 
     class PricingModel
     {
-        Random rand = new Random(); 
+        #region Private Variables 
+        private int price;
+        #endregion
+
+        #region Constructors 
+
+        public PricingModel()
+        {
+
+        }
+
+        public PricingModel(int price)
+        {
+            this.price = price;
+        }
+
+        #endregion
+
+        #region Public Methods 
+
+
+
+        #endregion
 
     }
 
@@ -52,6 +74,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // Implemented 
     #region Order Class
 
     class OrderClass
@@ -108,6 +131,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // Implemented 
     #region Multi Cell Buffer 
 
     class MultiCellBuffer
@@ -220,6 +244,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // Implemented 
     #region Encoder Class
 
     class Encoder
@@ -246,6 +271,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // Implemented 
     #region Decoder Class 
 
     class Decoder
