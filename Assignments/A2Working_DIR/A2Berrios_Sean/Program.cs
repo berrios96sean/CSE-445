@@ -201,9 +201,11 @@ namespace A2Berrios_Sean
             testDecoderEncoder();
         }
 
+        // to make code neater and for debugging the testing methods are designed to ensure functionality of each class as I am integrating 
+        #region Test Methods 
         public static void testDecoderEncoder()
         {
-            OrderClass test = new OrderClass("Sean", 12345, "bob", 345.43);
+            OrderClass test = new OrderClass("Simon", 12345, "Bob", 345.43);
             Encoder enc = new Encoder();
             Decoder dcr = new Decoder();
 
@@ -215,6 +217,12 @@ namespace A2Berrios_Sean
             Console.WriteLine("New Instace = sender: {0} \n card: {1} \n receiver: {2} \n amount: {3}", newOrder.GetSenderId(), newOrder.GetCardNum(), newOrder.GetReceiverID(), newOrder.GetAmount());
 
         }
+
+        public static void testMultiCellBuffer()
+        {
+
+        }
+        #endregion
     }
 
     #endregion
