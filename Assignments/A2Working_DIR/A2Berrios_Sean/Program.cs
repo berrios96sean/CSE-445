@@ -26,30 +26,63 @@ namespace A2Berrios_Sean
 
     #region Pricing Model Class
 
-    // In Progress 
+    // Implemented 
     class PricingModel
     {
         #region Private Variables 
-        private int price;
+        // using dictionary to hardcode price for day of the week in the constructor
+        private Dictionary<DayOfWeek, int> pricesByDay;
         #endregion
 
         #region Constructors 
 
         public PricingModel()
         {
-
-        }
-
-        public PricingModel(int price)
-        {
-            this.price = price;
+            pricesByDay = new Dictionary<DayOfWeek, int>
+            {
+                    {DayOfWeek.Monday, 100},
+                    {DayOfWeek.Tuesday,110},
+                    {DayOfWeek.Wednesday,120},
+                    {DayOfWeek.Thursday,115},
+                    {DayOfWeek.Friday,135},
+                    {DayOfWeek.Saturday,105},
+                    {DayOfWeek.Sunday,95}
+            };
         }
 
         #endregion
 
         #region Public Methods 
 
+        public double GetPrice(DayOfWeek day, int seats)
+        {
 
+            double _price = pricesByDay[day];
+            double price = _price;
+
+
+            // Based on seat availability create hard price adjustments 
+            if (seats < 10)
+            {
+                // create a +20% adjustment
+                price *= 1.20; 
+            }
+            else if (seats < 50 && seats > 10)
+            {
+                // create a -10% adjustment 
+                price *= 0.90;
+            }
+            else
+            {
+                // apply a random adjustment between -15% to +15%
+                Random rand = new Random();
+                double fact = rand.NextDouble() * 0.3 + 0.85;
+                price *= fact;
+            }
+
+            return price; 
+
+        }
 
         #endregion
 
@@ -310,6 +343,7 @@ namespace A2Berrios_Sean
 
         // to make code neater and for debugging the testing methods are designed to ensure functionality of each class as I am integrating 
         #region Test Methods 
+       
         public static void testDecoderEncoder()
         {
             OrderClass test = new OrderClass("Simon", 12345, "Bob", 345.43);
@@ -329,6 +363,7 @@ namespace A2Berrios_Sean
         {
 
         }
+        
         #endregion
     }
 
