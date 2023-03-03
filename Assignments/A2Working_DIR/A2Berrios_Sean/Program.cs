@@ -24,9 +24,10 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // Implemented 
     #region Pricing Model Class
 
-    // Implemented 
+
     class PricingModel
     {
         #region Private Variables 
@@ -108,7 +109,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
-    // Implemented 
+    // Implemented -- TESTED
     #region Order Class
 
     class OrderClass
@@ -278,7 +279,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
-    // Implemented 
+    // Implemented -- TESTED 
     #region Encoder Class
 
     class Encoder
@@ -305,7 +306,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
-    // Implemented 
+    // Implemented -- TESTED 
     #region Decoder Class 
 
     class Decoder
