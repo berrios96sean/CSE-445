@@ -112,7 +112,30 @@ namespace A2Berrios_Sean
 
     class MultiCellBuffer
     {
+        #region Private Variables 
+        private String[] cells;
+        private int cellsUsed;
+        private int size;
+        private int nextIn;
+        private int nextOut;
+        #endregion
 
+        #region Constructors
+        
+        public MultiCellBuffer()
+        {
+
+        }
+
+        public MultiCellBuffer(int size)
+        {
+            this.size = size;
+            this.cells = new string[size];
+            this.cellsUsed = 0;
+            this.nextIn = 0;
+            this.nextOut = 0;
+        }
+        #endregion
     }
 
     #endregion
