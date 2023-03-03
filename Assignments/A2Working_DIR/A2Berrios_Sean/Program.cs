@@ -112,6 +112,7 @@ namespace A2Berrios_Sean
 
     class MultiCellBuffer
     {
+
         #region Private Variables 
         private String[] cells;
         private int cellsUsed;
@@ -134,6 +135,85 @@ namespace A2Berrios_Sean
             this.cellsUsed = 0;
             this.nextIn = 0;
             this.nextOut = 0;
+        }
+        #endregion
+
+        #region Public Methods 
+
+        // making boolean to ensure cell was set. 
+        public bool SetOneCell(String data)
+        {
+            // setting lock on class to prevent race conditions 
+            lock (this)
+            {
+                // ensure not all cells for the buffer are being used 
+                if (cellsUsed == size)
+                {
+                    return false; 
+                }
+
+                cells[nextIn] = data; 
+                // Create a circular buffer 
+                if (nextIn == size -1)
+                {
+                    nextIn = 0; 
+                }
+                else
+                {
+                    nextIn++; 
+                }
+                cellsUsed++;
+
+                return true; 
+            }
+        }
+
+        public String GetOneCell(String receiverID)
+        {
+            // setting lock on class to prevent race conditions
+            lock (this)
+            {
+                // initialize variable to hold the encoded string 
+                String data = null;
+
+                // there are no cells being used 
+                if (cellsUsed == 0)
+                {
+                    return "All cells are empty"; 
+                }
+
+                for(int i = 0; i < size; i++)
+                {
+                    if (cells[nextOut] != null && cells[nextOut].Contains(receiverID))
+                    {
+                        data = cells[nextOut];
+                        cells[nextOut] = null; 
+                        if (nextOut == size - 1)
+                        {
+                            nextOut = 0; 
+                        }
+                        else
+                        {
+                            nextOut++;
+                        }
+                        cellsUsed--;
+                        break; 
+                    }
+
+                    if (nextOut == size -1)
+                    {
+                        nextOut = 0; 
+                    }
+                    else
+                    {
+                        nextOut++;
+                    }
+
+                }
+
+                return data; 
+
+            }
         }
         #endregion
     }
