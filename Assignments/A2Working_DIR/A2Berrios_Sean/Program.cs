@@ -26,6 +26,7 @@ namespace A2Berrios_Sean
 
     #region Pricing Model Class
 
+    // In Progress 
     class PricingModel
     {
         #region Private Variables 
