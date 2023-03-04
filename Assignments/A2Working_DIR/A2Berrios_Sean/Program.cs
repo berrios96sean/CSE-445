@@ -117,6 +117,60 @@ namespace A2Berrios_Sean
     class TravelAgency
     {
 
+        #region Private Variables 
+        private String idNum;
+        // Using orders variable to track number of orders processed. 
+        private static int orders = 0;
+        private MultiCellBuffer buffer;
+        private PricingModel pm;
+        #endregion
+
+        #region Constructors 
+
+        /// <summary>
+        /// Default Constructor -- Not yet sure if I will need this 
+        /// </summary>
+        public TravelAgency()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor to Initialize a TravelAgency
+        /// </summary>
+        /// <param name="idNum"></param>
+        /// <param name="buffer"></param>
+        /// <param name="pm"></param>
+        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm)
+        {
+            this.idNum = idNum;
+            this.buffer = buffer;
+            this.pm = pm; 
+        }
+        #endregion
+
+        #region Public Methods 
+
+        /// <summary>
+        /// Gets the order count for this Travel Agent only. Will need to add all agents count together to get total. 
+        /// </summary>
+        /// <returns></returns>
+        public static int GetOrderCount()
+        {
+            return orders;
+        }
+
+        /// <summary>
+        /// Start the Travel Agency Thread when Called. 
+        /// </summary>
+        /// <param name="low">Minimum amount of orders to be randomly generated</param>
+        /// <param name="high">Maximum amount of orders to be randomly generated</param>
+        public void Run(int low, int high)
+        {
+            
+            int maxOrders = new Random().Next(low, high);
+        }
+        #endregion
     }
 
     #endregion
