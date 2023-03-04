@@ -121,6 +121,7 @@ namespace A2Berrios_Sean
 
         #region Private Variables 
         private String idNum;
+        private String recID;
         // Using orders variable to track number of orders processed. 
         private static int orders = 0;
         private MultiCellBuffer buffer;
@@ -143,11 +144,12 @@ namespace A2Berrios_Sean
         /// <param name="idNum"></param>
         /// <param name="buffer"></param>
         /// <param name="pm"></param>
-        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm)
+        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm, String recID)
         {
             this.idNum = idNum;
             this.buffer = buffer;
-            this.pm = pm; 
+            this.pm = pm;
+            this.recID = recID; 
         }
         #endregion
 
@@ -188,7 +190,27 @@ namespace A2Berrios_Sean
 
                 // Generate random info required for a Order Class Object 
                 // Generate Random number betwen 5000 and 7000 for credit card number 
-                int cardNo = new Random().Next(5000, 7000);
+                int cardNum = new Random().Next(5000, 7000);
+
+                // Create Order Class object 
+                OrderClass order = new OrderClass(idNum, cardNum, this.recID, seats);
+
+                // Encode Order Class object into a Sting 
+                Encoder enc = new Encoder();
+                String encodedOrder = enc.encode(order);
+
+                Boolean sendToBuffer = buffer.SetOneCell(encodedOrder); 
+
+                if (sendToBuffer == true)
+                {
+                    orders++;
+                    Console.WriteLine("Travel Agency {0}: sent order with following information \n Airline: {1} \n Card No: {2} \n Seats: {3} \n Time: {4} ",
+                                        idNum,order.GetReceiverID(),order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
+                }
+                else
+                {
+                    Console.WriteLine("Travel Agency {0}: Failed to send Order to Airline: {1}", idNum, order.GetReceiverID());
+                }
             }
         }
         #endregion
@@ -207,7 +229,9 @@ namespace A2Berrios_Sean
         private int cardNum;
         // Use thread name 
         private String receiverID;
-        private double amount;
+        // Changing this implementation, originally thought it was a price amount. 
+        // May need to make other changes 
+        private int amountOfSeats;
         #endregion
 
         #region Constructors 
@@ -228,12 +252,12 @@ namespace A2Berrios_Sean
         /// <param name="cardNum"></param>
         /// <param name="receiverID"></param>
         /// <param name="amount"></param>
-        public OrderClass(String senderID, int cardNum, String receiverID, double amount)
+        public OrderClass(String senderID, int cardNum, String receiverID, int amount)
         {
             this.senderID = senderID;
             this.cardNum = cardNum;
             this.receiverID = receiverID;
-            this.amount = amount; 
+            this.amountOfSeats = amount; 
         }
         #endregion
 
@@ -254,9 +278,9 @@ namespace A2Berrios_Sean
             return this.receiverID; 
         }
 
-        public double GetAmount()
+        public int GetAmount()
         {
-            return this.amount; 
+            return this.amountOfSeats; 
         }
         #endregion
     }
@@ -417,7 +441,7 @@ namespace A2Berrios_Sean
                 //Console.WriteLine("Decoded String = {0}",decodedString);
                 String[] splitString = decodedString.Split(',');
 
-                OrderClass decodedOrder = new OrderClass(splitString[0], int.Parse(splitString[1]), splitString[2], double.Parse(splitString[3]));
+                OrderClass decodedOrder = new OrderClass(splitString[0], int.Parse(splitString[1]), splitString[2], int.Parse(splitString[3]));
                 return decodedOrder;
             }
             catch (Exception e)
@@ -444,7 +468,7 @@ namespace A2Berrios_Sean
        
         public static void testDecoderEncoder()
         {
-            OrderClass test = new OrderClass("Simon", 12345, "Bob", 345.43);
+            OrderClass test = new OrderClass("Simon", 12345, "Bob", 10);
             Encoder enc = new Encoder();
             Decoder dcr = new Decoder();
 
