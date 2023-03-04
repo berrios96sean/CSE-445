@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace A2Berrios_Sean
@@ -75,12 +76,12 @@ namespace A2Berrios_Sean
 
 
             // Based on seat availability create hard price adjustments 
-            if (seats < 10)
+            if (seats < 30)
             {
                 // create a +20% adjustment
                 price *= 1.20; 
             }
-            else if (seats < 50 && seats > 10)
+            else if (seats < 60 && seats > 30)
             {
                 // create a -10% adjustment 
                 price *= 0.90;
@@ -169,6 +170,25 @@ namespace A2Berrios_Sean
         {
             
             int maxOrders = new Random().Next(low, high);
+            // Defining a stopping condition 
+            while (orders < maxOrders)
+            {
+                Thread.Sleep(500);
+                
+                // Generate Random Info to Create an Pricing Model Class object 
+                // Generate a random day of week to help with testing 
+                int getDayInt = new Random().Next(0, 7);
+                DayOfWeek dayOfWeek = (DayOfWeek) getDayInt;
+                // seats will always be more than 1 so in a sence unlimited
+                int seats = new Random().Next(1, 100);
+                // Initialize a Pricing Model Class
+                PricingModel pm = new PricingModel();
+                double price = pm.GetPrice(dayOfWeek, seats);
+
+                // Generate random info required for a Order Class Object 
+                // Generate Random number betwen 5000 and 7000 for credit card number 
+                int cardNo = new Random().Next(5000, 7000);
+            }
         }
         #endregion
     }
