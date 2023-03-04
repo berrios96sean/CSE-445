@@ -104,10 +104,31 @@ namespace A2Berrios_Sean
 
     #endregion
 
+    // In Progress
     #region Order Processing Class
 
     class OrderProcessing
     {
+        // TODOs 
+        /*
+         * check card number is between 5000 and 7000 
+         * calculate total unitPrice*Seats+ tax Tax is 5% 
+         * if order is declined or processed notify the Airline 
+         * to keep track 
+         */
+        #region Private Variables 
+        private double tax = 0.05;
+        private OrderClass order;
+        private double price; 
+        #endregion
+
+        #region Constructors 
+
+        #endregion
+
+        #region Public Methods 
+
+        #endregion
 
     }
 
@@ -395,6 +416,18 @@ namespace A2Berrios_Sean
 
                 return data; 
 
+            }
+        }
+
+        public bool IsEmpty()
+        {
+            if (cellsUsed == 0)
+            {
+                return true; 
+            }
+            else
+            {
+                return false; 
             }
         }
         #endregion
