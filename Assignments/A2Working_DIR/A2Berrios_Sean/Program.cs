@@ -113,7 +113,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
-    // In Progress
+    // Implemented -- TESTED
     #region Travel Agency 
 
     class TravelAgency
@@ -144,12 +144,11 @@ namespace A2Berrios_Sean
         /// <param name="idNum"></param>
         /// <param name="buffer"></param>
         /// <param name="pm"></param>
-        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm, String recID)
+        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm)
         {
             this.idNum = idNum;
             this.buffer = buffer;
-            this.pm = pm;
-            this.recID = recID; 
+            this.pm = pm; 
         }
         #endregion
 
@@ -169,15 +168,18 @@ namespace A2Berrios_Sean
         /// </summary>
         /// <param name="low">Minimum amount of orders to be randomly generated</param>
         /// <param name="high">Maximum amount of orders to be randomly generated</param>
-        public void Run(int low, int high)
+        public void Run()
         {
             
-            int maxOrders = new Random().Next(low, high);
+            int maxOrders = new Random().Next(10, 15);
             // Defining a stopping condition 
             while (orders < maxOrders)
             {
                 Thread.Sleep(500);
-                
+
+                //Set Receiver ID to accomodate 5 Airlines 
+                int airlineNum = new Random().Next(1, 5);
+                this.recID = "Airline "+airlineNum;
                 // Generate Random Info to Create an Pricing Model Class object 
                 // Generate a random day of week to help with testing 
                 int getDayInt = new Random().Next(0, 7);
@@ -204,7 +206,7 @@ namespace A2Berrios_Sean
                 if (sendToBuffer == true)
                 {
                     orders++;
-                    Console.WriteLine("Travel Agency {0}: sent order with following information \n Airline: {1} \n Card No: {2} \n Seats: {3} \n Time: {4} ",
+                    Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: {1} - Card No: {2} - Seats: {3} - Time: {4} ",
                                         idNum,order.GetReceiverID(),order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
                 }
                 else
@@ -460,7 +462,9 @@ namespace A2Berrios_Sean
     {
         static void Main(string[] args)
         {
-            testDecoderEncoder();
+            //testDecoderEncoder();
+            testTravelAgency();
+
         }
 
         // to make code neater and for debugging the testing methods are designed to ensure functionality of each class as I am integrating 
@@ -484,6 +488,21 @@ namespace A2Berrios_Sean
         public static void testMultiCellBuffer()
         {
 
+        }
+
+        public static void testTravelAgency()
+        {
+            int airlineNum = new Random().Next(1,3);
+            MultiCellBuffer buffer = new MultiCellBuffer(15);
+            PricingModel pm = new PricingModel();
+            TravelAgency ta1 = new TravelAgency("Travel Agency 1", buffer, pm);  
+            Thread ta1Thread = new Thread(new ThreadStart(ta1.Run));
+            TravelAgency ta2 = new TravelAgency("Travel Agency 2", buffer, pm);
+            Thread ta2Thread = new Thread(new ThreadStart(ta2.Run));
+            ta1Thread.Start();
+            ta2Thread.Start();
+            ta1Thread.Join();
+            ta2Thread.Join();
         }
         
         #endregion
