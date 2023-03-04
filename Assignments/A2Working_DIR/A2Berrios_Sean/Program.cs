@@ -32,11 +32,16 @@ namespace A2Berrios_Sean
     {
         #region Private Variables 
         // using dictionary to hardcode price for day of the week in the constructor
+        // Defining prices in constructor, may need to come back to this to see if there is a smoother way
         private Dictionary<DayOfWeek, int> pricesByDay;
         #endregion
 
         #region Constructors 
 
+        // Default constructor will hardcode the prices for the days of the week when called need to include this in its description when called 
+        /// <summary>
+        /// Creates a pricing model that initializes hardcoded prices for each day of the week
+        /// </summary>
         public PricingModel()
         {
             pricesByDay = new Dictionary<DayOfWeek, int>
