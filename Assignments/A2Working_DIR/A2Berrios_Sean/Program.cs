@@ -60,6 +60,13 @@ namespace A2Berrios_Sean
 
         #region Public Methods 
 
+        /// <summary>
+        /// Get price based on day of the week and seat availibity. Will randomly generate seat prices only when more than 
+        /// 50 seats are available. 
+        /// </summary>
+        /// <param name="day"></param>
+        /// <param name="seats"></param>
+        /// <returns></returns>
         public double GetPrice(DayOfWeek day, int seats)
         {
 
@@ -130,12 +137,22 @@ namespace A2Berrios_Sean
 
         #region Constructors 
 
+        /// <summary>
+        /// Default constructor to create an empty OrderClass to make assignable if needed later on. 
+        /// </summary>
         public OrderClass()
         {
 
         }
 
-        // Setting the variables in a constructor since variables are private
+        /// <summary>
+        /// Constructor to initialize the OrderClass, only making it possible to assign values in here since members
+        /// are private to avoid bad coding practices. 
+        /// </summary>
+        /// <param name="senderID"></param>
+        /// <param name="cardNum"></param>
+        /// <param name="receiverID"></param>
+        /// <param name="amount"></param>
         public OrderClass(String senderID, int cardNum, String receiverID, double amount)
         {
             this.senderID = senderID;
