@@ -19,10 +19,12 @@ namespace A2Berrios_Sean
     {
 
         #region Private Variables 
-        private int price;
+        private double price;
         private String id;
         private MultiCellBuffer buffer;
-        private int priceAdjustments; 
+        private int priceAdjustments;
+        private int ordersAccepted;
+        private int ordersRejected; 
         #endregion
 
         #region Constructors 
@@ -32,10 +34,9 @@ namespace A2Berrios_Sean
 
         }
 
-        public Airline(String id, int price, MultiCellBuffer buffer)
+        public Airline(String id, MultiCellBuffer buffer)
         {
             this.id = id;
-            this.price = price;
             this.buffer = buffer;
             this.priceAdjustments = 0;
         }
@@ -43,13 +44,96 @@ namespace A2Berrios_Sean
 
         #region Public Methods 
 
-        public void getOrders()
+        public void Run()
         {
-            while(true)
+            
+            while (true)
             {
-                String encOrder = buffer.GetOneCell(id);
+                Thread.Sleep(500);
+               // Decoder dcr = new Decoder();
+                String test = this.buffer.GetOneCell(id);
+                if (test == null )
+                {
+                    Console.WriteLine("Airline: {0} not found in buffer",id);
+                    break; 
+                }
+                else
+                {
+                    //Console.WriteLine("not Null");
+                    getOrders(test); 
+                    //Console.WriteLine(test);
+                }
+                //OrderClass test1 = dcr.decodeString(test);
+                //Console.WriteLine("yo"); 
+                //Console.WriteLine(test1.GetSenderId());
+                //Console.WriteLine("YO");
+                //getOrders(); 
             }
         }
+
+
+        public void getOrders(String encOrder)
+        {
+            
+            while(true)
+            {
+                encOrder = buffer.GetOneCell(id);
+
+                // if no order continue listening for orders 
+                if (encOrder == null)
+                {
+                    continue; 
+                }
+                if (encOrder != null)
+                {
+                    // Decode string for order 
+                    Decoder dcr = new Decoder();
+                    OrderClass order = new OrderClass();
+                    //Console.WriteLine(encOrder);
+                    //Console.WriteLine("Decoding at line: 89");
+                    order = dcr.decodeString(encOrder);
+                    //Console.WriteLine(order.GetSenderId());
+                    // Get order variables
+                    int cardNum = order.GetCardNum();
+                    int seats = order.GetAmount();
+                    PricingModel pm = new PricingModel();
+                    int getDayInt = new Random().Next(0, 7);
+                    DayOfWeek dayOfWeek = (DayOfWeek)getDayInt;
+                    this.price = pm.GetPrice(dayOfWeek, seats);
+
+                    //
+                    OrderProcessing op = new OrderProcessing(cardNum, this.price, seats);
+                    Boolean processOrder = op.processOrder();
+
+                    if (processOrder)
+                    {
+                        ordersAccepted++;
+                        Console.WriteLine("Airline {0}: Processed order with following information -- Travel Agency: {1} - Card No: {2} - Seats: {3} - Time: {4} ",
+                                        id, order.GetSenderId(), order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
+                    }
+                    else
+                    {
+                        ordersRejected++;
+                        Console.WriteLine("Airline {0}: Could Not Process Order from Travel Agency: {1}", id, order.GetSenderId());
+                    }
+
+                    
+                }
+                
+
+            }
+        }
+
+        public int GetAcceptedOrders()
+        {
+            return this.ordersAccepted;
+        }
+
+        public int GetRejectedOrders()
+        {
+            return this.ordersRejected;
+        }
+
         #endregion
 
     }
@@ -204,7 +288,8 @@ namespace A2Berrios_Sean
         private static int orders = 0;
         private MultiCellBuffer buffer;
         private PricingModel pm;
-        private double price; 
+        private double price;
+        private bool finish = false; 
         #endregion
 
         #region Constructors 
@@ -250,12 +335,12 @@ namespace A2Berrios_Sean
         public void Run()
         {
             
-            int maxOrders = new Random().Next(10, 15);
+            int maxOrders = new Random().Next(8, 10);
             // Defining a stopping condition 
             while (orders < maxOrders)
             {
                 Thread.Sleep(500);
-                int airlineNum = new Random().Next(1, 5);
+                int airlineNum = new Random().Next(1, 3);
                 String airlineID = "Airline " + airlineNum;
                 int getDayInt = new Random().Next(0, 7);
                 DayOfWeek dayOfWeek = (DayOfWeek)getDayInt;
@@ -266,24 +351,22 @@ namespace A2Berrios_Sean
 
                 sendOrder(seats,price,airlineID);
 
+                if(orders == maxOrders)
+                {
+                    this.finish = true; 
+                }
 
-                Thread.Sleep(500);
+               // Thread.Sleep(500);
             }
         }
 
         public void sendOrder(int seats, double price, String airlineID)
         {
-            //Set Receiver ID to accomodate 5 Airlines 
 
-            // Generate Random Info to Create an Pricing Model Class object 
-            // Generate a random day of week to help with testing 
-
-            // seats will always be more than 1 so in a sence unlimited
 
             // Initialize a Pricing Model Class
             PricingModel pm = new PricingModel();
 
-            // Generate random info required for a Order Class Object 
             // Generate Random number betwen 5000 and 7000 for credit card number 
             int cardNum = new Random().Next(5000, 7000);
 
@@ -292,6 +375,7 @@ namespace A2Berrios_Sean
 
             // Encode Order Class object into a Sting 
             Encoder enc = new Encoder();
+            //Console.WriteLine("Encoding at line: 355");
             String encodedOrder = enc.encode(order);
 
             Boolean sendToBuffer = buffer.SetOneCell(encodedOrder);
@@ -299,7 +383,7 @@ namespace A2Berrios_Sean
             if (sendToBuffer == true)
             {
                 orders++;
-                Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: {1} - Card No: {2} - Seats: {3} - Time: {4} ",
+                Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: |{1}| - Card No: {2} - Seats: {3} - Time: {4} ",
                                     idNum, order.GetReceiverID(), order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
             }
             else
@@ -316,6 +400,12 @@ namespace A2Berrios_Sean
                 sendOrder(seats, newPrice, airlineID);
             }
         }
+
+        public bool isFinished()
+        {
+            return this.finish; 
+        }
+
         #endregion
     }
 
@@ -458,17 +548,30 @@ namespace A2Berrios_Sean
             {
                 // initialize variable to hold the encoded string 
                 String data = null;
-
+                
                 // there are no cells being used 
                 if (cellsUsed == 0)
                 {
-                    return "All cells are empty"; 
+                    
+                    return null; 
                 }
 
-                for(int i = 0; i < size; i++)
+                for (int i = 0; i < size; i++)
                 {
-                    if (cells[nextOut] != null && cells[nextOut].Contains(receiverID))
+                    Decoder dcr = new Decoder(); 
+                    String str = cells[nextOut];
+                    OrderClass order = new OrderClass(); 
+                    if (str != null)
                     {
+                        //Console.WriteLine("Decoding at line: 534");
+                        order = dcr.decodeString(str);
+                        //Console.WriteLine(order.GetReceiverID());
+                    }
+
+
+                    if (cells[nextOut] != null && order.GetReceiverID() == receiverID)
+                    {
+                        
                         data = cells[nextOut];
                         cells[nextOut] = null; 
                         if (nextOut == size - 1)
@@ -551,16 +654,23 @@ namespace A2Berrios_Sean
         {
             try
             {
+                if (encodedString == null)
+                {
+                    //Console.WriteLine("String is Null");
+                    return null; 
+                }
                 byte[] byteArray = Convert.FromBase64String(encodedString);
                 String decodedString = Encoding.UTF8.GetString(byteArray);
                 //Console.WriteLine("Decoded String = {0}",decodedString);
                 String[] splitString = decodedString.Split(',');
 
                 OrderClass decodedOrder = new OrderClass(splitString[0], int.Parse(splitString[1]), splitString[2], int.Parse(splitString[3]));
+                //Console.WriteLine(decodedOrder.GetSenderId());
                 return decodedOrder;
             }
             catch (Exception e)
             {
+                Console.WriteLine("Exception at line: 632");
                 Console.WriteLine("Exception: "+ e.Message);
             }
             return null; 
@@ -592,6 +702,7 @@ namespace A2Berrios_Sean
             String encoded = enc.encode(test);
             Console.WriteLine("Encoded String = {0}", encoded);
 
+           //Console.WriteLine("Deoding at line: 671");
             OrderClass newOrder = dcr.decodeString(encoded);
 
             Console.WriteLine("New Instace = sender: {0} \n card: {1} \n receiver: {2} \n amount: {3}", newOrder.GetSenderId(), newOrder.GetCardNum(), newOrder.GetReceiverID(), newOrder.GetAmount());
@@ -606,17 +717,35 @@ namespace A2Berrios_Sean
         public static void testTravelAgency()
         {
             int airlineNum = new Random().Next(1,3);
-            MultiCellBuffer buffer = new MultiCellBuffer(3);
+            MultiCellBuffer buffer = new MultiCellBuffer(5);
             PricingModel pm = new PricingModel();
             TravelAgency ta1 = new TravelAgency("Travel Agency 1", buffer, pm);  
             Thread ta1Thread = new Thread(new ThreadStart(ta1.Run));
             TravelAgency ta2 = new TravelAgency("Travel Agency 2", buffer, pm);
             Thread ta2Thread = new Thread(new ThreadStart(ta2.Run));
+            Airline a1 = new Airline("Airline 1", buffer);
+            Thread a1Thread = new Thread(new ThreadStart(a1.Run));
+            Airline a2 = new Airline("Airline 2", buffer);
+            Thread a2Thread = new Thread(new ThreadStart(a2.Run));
+            Airline a3 = new Airline("Airline 3", buffer);
+            Thread a3Thread = new Thread(new ThreadStart(a3.Run));
+
             ta1Thread.Start();
             ta2Thread.Start();
+            //a1.Start();
+            a1Thread.Start();
+            a2Thread.Start();
+            a3Thread.Start();
+
+
+
 
             ta1Thread.Join();
             ta2Thread.Join();
+            a1Thread.Join();
+            a2Thread.Join();
+            a3Thread.Join();
+
         }
         
         #endregion
