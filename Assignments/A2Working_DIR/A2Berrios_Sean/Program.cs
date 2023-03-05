@@ -10,16 +10,26 @@ namespace A2Berrios_Sean
 
     #region Delegates for Events 
     
-    public delegate void priceCutEvent(Int32 price);
-    public delegate void orderProcessedEvent();
-    public delegate void orderReceivedEvent();
-    public delegate void priceModelEvent(); 
+    public delegate void priceCutEventHandler(int price, String airlineID);
     
     #endregion
 
     #region Airline class
     class Airline
     {
+
+        #region Private Variables 
+
+        #endregion
+
+        #region Constructors 
+
+        #endregion
+
+        #region Public Methods 
+
+
+        #endregion
 
     }
 
@@ -104,7 +114,7 @@ namespace A2Berrios_Sean
 
     #endregion
 
-    // In Progress
+    // Implemented
     #region Order Processing Class
 
     class OrderProcessing
@@ -277,7 +287,7 @@ namespace A2Berrios_Sean
             }
         }
 
-        public void PriceCutEvent(int newPrice, String airlineID)
+        public void priceCutEvent(int newPrice, String airlineID)
         {
             if (newPrice < this.price)
             {
@@ -575,7 +585,7 @@ namespace A2Berrios_Sean
         public static void testTravelAgency()
         {
             int airlineNum = new Random().Next(1,3);
-            MultiCellBuffer buffer = new MultiCellBuffer(15);
+            MultiCellBuffer buffer = new MultiCellBuffer(3);
             PricingModel pm = new PricingModel();
             TravelAgency ta1 = new TravelAgency("Travel Agency 1", buffer, pm);  
             Thread ta1Thread = new Thread(new ThreadStart(ta1.Run));
