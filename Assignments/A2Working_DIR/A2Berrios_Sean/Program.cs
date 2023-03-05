@@ -19,16 +19,37 @@ namespace A2Berrios_Sean
     {
 
         #region Private Variables 
-
+        private int price;
+        private String id;
+        private MultiCellBuffer buffer;
+        private int priceAdjustments; 
         #endregion
 
         #region Constructors 
 
+        public Airline()
+        {
+
+        }
+
+        public Airline(String id, int price, MultiCellBuffer buffer)
+        {
+            this.id = id;
+            this.price = price;
+            this.buffer = buffer;
+            this.priceAdjustments = 0;
+        }
         #endregion
 
         #region Public Methods 
 
-
+        public void getOrders()
+        {
+            while(true)
+            {
+                String encOrder = buffer.GetOneCell(id);
+            }
+        }
         #endregion
 
     }
