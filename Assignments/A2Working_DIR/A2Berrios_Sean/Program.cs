@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace A2Berrios_Sean
 {
-
+  
     #region Delegates for Events 
     
     public delegate void priceCutEventHandler(int price, String airlineID);
@@ -24,7 +24,8 @@ namespace A2Berrios_Sean
         private MultiCellBuffer buffer;
         private int priceAdjustments;
         private int ordersAccepted;
-        private int ordersRejected; 
+        private int ordersRejected;
+        private TravelAgency ta; 
         #endregion
 
         #region Constructors 
@@ -54,8 +55,9 @@ namespace A2Berrios_Sean
                 String test = this.buffer.GetOneCell(id);
                 if (test == null )
                 {
-                    Console.WriteLine("Airline: {0} not found in buffer",id);
-                    break; 
+                    //Console.WriteLine("Airline: {0} not found in buffer",id);
+                 
+                    Thread.Sleep(500);
                 }
                 else
                 {
@@ -63,11 +65,7 @@ namespace A2Berrios_Sean
                     getOrders(test); 
                     //Console.WriteLine(test);
                 }
-                //OrderClass test1 = dcr.decodeString(test);
-                //Console.WriteLine("yo"); 
-                //Console.WriteLine(test1.GetSenderId());
-                //Console.WriteLine("YO");
-                //getOrders(); 
+ 
             }
         }
 
@@ -285,11 +283,13 @@ namespace A2Berrios_Sean
         #region Private Variables 
         private String idNum;
         // Using orders variable to track number of orders processed. 
-        private static int orders = 0;
+        private int orders = 0;
         private MultiCellBuffer buffer;
         private PricingModel pm;
         private double price;
-        private bool finish = false; 
+        private bool finish = false;
+        private Thread thread;
+        private String airName; 
         #endregion
 
         #region Constructors 
@@ -308,11 +308,13 @@ namespace A2Berrios_Sean
         /// <param name="idNum"></param>
         /// <param name="buffer"></param>
         /// <param name="pm"></param>
-        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm)
+        public TravelAgency(String idNum, MultiCellBuffer buffer, PricingModel pm, Thread thread, String airName)
         {
             this.idNum = idNum;
             this.buffer = buffer;
-            this.pm = pm; 
+            this.pm = pm;
+            this.thread = thread;
+            this.airName = airName; 
         }
         #endregion
 
@@ -322,7 +324,7 @@ namespace A2Berrios_Sean
         /// Gets the order count for this Travel Agent only. Will need to add all agents count together to get total. 
         /// </summary>
         /// <returns></returns>
-        public static int GetOrderCount()
+        public int GetOrderCount()
         {
             return orders;
         }
@@ -334,14 +336,15 @@ namespace A2Berrios_Sean
         /// <param name="high">Maximum amount of orders to be randomly generated</param>
         public void Run()
         {
-            
+            thread.Start(); 
             int maxOrders = new Random().Next(8, 10);
             // Defining a stopping condition 
             while (orders < maxOrders)
             {
-                Thread.Sleep(500);
-                int airlineNum = new Random().Next(1, 3);
-                String airlineID = "Airline " + airlineNum;
+                Thread.Sleep(1000);
+
+               // int airlineNum = new Random().Next(1, 3);
+               // String airlineID = "Airline " + airlineNum;
                 int getDayInt = new Random().Next(0, 7);
                 DayOfWeek dayOfWeek = (DayOfWeek)getDayInt;
                 int seats = new Random().Next(1, 100);
@@ -349,18 +352,21 @@ namespace A2Berrios_Sean
                 
                 
 
-                sendOrder(seats,price,airlineID);
+                sendOrder(seats,price,airName,maxOrders);
 
                 if(orders == maxOrders)
                 {
-                    this.finish = true; 
+                    this.finish = true;
+                    Console.WriteLine();
+                    Console.WriteLine("TA {0} STOPPED!!",idNum);
+                    Console.WriteLine();
                 }
 
-               // Thread.Sleep(500);
+                Thread.Sleep(500);
             }
         }
 
-        public void sendOrder(int seats, double price, String airlineID)
+        public void sendOrder(int seats, double price, String airlineID, int max)
         {
 
 
@@ -383,8 +389,20 @@ namespace A2Berrios_Sean
             if (sendToBuffer == true)
             {
                 orders++;
+                if (orders == max)
+                {
+                    this.finish = true;
+                   // Console.WriteLine();
+                    //Console.WriteLine("TA {0} STOPPED!!", idNum);
+                   // Console.WriteLine();
+                    thread.Abort();
+                    Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: |{1}| - Card No: {2} - Seats: {3} - Time: {4} ",
+                    idNum, order.GetReceiverID(), order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
+                    Thread.CurrentThread.Abort();
+                }
                 Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: |{1}| - Card No: {2} - Seats: {3} - Time: {4} ",
                                     idNum, order.GetReceiverID(), order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
+
             }
             else
             {
@@ -397,9 +415,10 @@ namespace A2Berrios_Sean
             if (newPrice < this.price)
             {
                 int seats = new Random().Next(1, 100);
-                sendOrder(seats, newPrice, airlineID);
+                sendOrder(seats, newPrice, airlineID,20);
             }
         }
+
 
         public bool isFinished()
         {
@@ -716,35 +735,54 @@ namespace A2Berrios_Sean
 
         public static void testTravelAgency()
         {
+            Thread[] threads = new Thread[10]; 
             int airlineNum = new Random().Next(1,3);
-            MultiCellBuffer buffer = new MultiCellBuffer(5);
+            MultiCellBuffer buffer = new MultiCellBuffer(3);
             PricingModel pm = new PricingModel();
-            TravelAgency ta1 = new TravelAgency("Travel Agency 1", buffer, pm);  
-            Thread ta1Thread = new Thread(new ThreadStart(ta1.Run));
-            TravelAgency ta2 = new TravelAgency("Travel Agency 2", buffer, pm);
-            Thread ta2Thread = new Thread(new ThreadStart(ta2.Run));
+
             Airline a1 = new Airline("Airline 1", buffer);
             Thread a1Thread = new Thread(new ThreadStart(a1.Run));
             Airline a2 = new Airline("Airline 2", buffer);
             Thread a2Thread = new Thread(new ThreadStart(a2.Run));
             Airline a3 = new Airline("Airline 3", buffer);
             Thread a3Thread = new Thread(new ThreadStart(a3.Run));
+            TravelAgency ta1 = new TravelAgency("Travel Agency 1", buffer, pm, a1Thread, "Airline 1");
+            Thread ta1Thread = new Thread(new ThreadStart(ta1.Run));
+            TravelAgency ta2 = new TravelAgency("Travel Agency 2", buffer, pm, a2Thread, "Airline 2");
+            Thread ta2Thread = new Thread(new ThreadStart(ta2.Run));
+            TravelAgency ta3 = new TravelAgency("Travel Agency 3", buffer, pm, a3Thread, "Airline 3");
+            Thread ta3Thread = new Thread(new ThreadStart(ta3.Run));
+
 
             ta1Thread.Start();
             ta2Thread.Start();
+            ta3Thread.Start();
             //a1.Start();
-            a1Thread.Start();
-            a2Thread.Start();
-            a3Thread.Start();
-
+            //a1Thread.Start();
+            //a2Thread.Start();
+            //a3Thread.Start();
 
 
 
             ta1Thread.Join();
             ta2Thread.Join();
-            a1Thread.Join();
-            a2Thread.Join();
-            a3Thread.Join();
+            ta3Thread.Join();
+            //a1Thread.Join();
+            //a2Thread.Join();
+            //a3Thread.Join();
+
+
+            Console.WriteLine("Final Summarry");
+            Console.WriteLine("******************************");
+            Console.WriteLine("Orders from Travel Agent 1: " + ta1.GetOrderCount());
+            Console.WriteLine("Orders from Travel Agent 2: " + ta2.GetOrderCount());
+            Console.WriteLine("Orders from Travel Agent 3: " + ta3.GetOrderCount());
+            Console.WriteLine("Accepted Orders Airline 1: " + a1.GetAcceptedOrders());
+            Console.WriteLine("Accepted Orders Airline 2: " + a2.GetAcceptedOrders());
+            Console.WriteLine("Accepted Orders Airline 3: " + a3.GetAcceptedOrders());
+            Console.WriteLine("Rejected Orders Airline 1: " + a1.GetRejectedOrders());
+            Console.WriteLine("Rejected Orders Airline 2: " + a2.GetRejectedOrders());
+            Console.WriteLine("Rejected Orders Airline 3: " + a3.GetRejectedOrders());
 
         }
         
