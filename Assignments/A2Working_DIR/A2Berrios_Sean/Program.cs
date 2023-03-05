@@ -119,15 +119,42 @@ namespace A2Berrios_Sean
         #region Private Variables 
         private double tax = 0.05;
         private OrderClass order;
-        private double price; 
+        private double price;
+        private int seats;
+        private int cardNum; 
         #endregion
 
         #region Constructors 
 
+        public OrderProcessing()
+        {
+
+        }
+
+        public OrderProcessing(int cardNum, double price, int seats)
+        {
+            this.cardNum = cardNum;
+            this.price = price;
+            this.seats = seats; 
+        }
         #endregion
 
         #region Public Methods 
 
+        public bool processOrder()
+        {
+            if (cardNum < 5000 || cardNum > 7000)
+            {
+                Console.WriteLine("Order Rejected: CC Invalid");
+                return false; 
+            }
+
+            double taxed = (price * seats) * tax;
+            double total = (price * seats) + taxed;
+
+            return true;
+            Console.WriteLine("Order Processed");
+        }
         #endregion
 
     }
@@ -142,11 +169,11 @@ namespace A2Berrios_Sean
 
         #region Private Variables 
         private String idNum;
-        private String recID;
         // Using orders variable to track number of orders processed. 
         private static int orders = 0;
         private MultiCellBuffer buffer;
         private PricingModel pm;
+        private double price; 
         #endregion
 
         #region Constructors 
@@ -197,43 +224,65 @@ namespace A2Berrios_Sean
             while (orders < maxOrders)
             {
                 Thread.Sleep(500);
-
-                //Set Receiver ID to accomodate 5 Airlines 
                 int airlineNum = new Random().Next(1, 5);
-                this.recID = "Airline "+airlineNum;
-                // Generate Random Info to Create an Pricing Model Class object 
-                // Generate a random day of week to help with testing 
+                String airlineID = "Airline " + airlineNum;
                 int getDayInt = new Random().Next(0, 7);
-                DayOfWeek dayOfWeek = (DayOfWeek) getDayInt;
-                // seats will always be more than 1 so in a sence unlimited
+                DayOfWeek dayOfWeek = (DayOfWeek)getDayInt;
                 int seats = new Random().Next(1, 100);
-                // Initialize a Pricing Model Class
-                PricingModel pm = new PricingModel();
-                double price = pm.GetPrice(dayOfWeek, seats);
+                this.price = pm.GetPrice(dayOfWeek, seats);
+                
+                
 
-                // Generate random info required for a Order Class Object 
-                // Generate Random number betwen 5000 and 7000 for credit card number 
-                int cardNum = new Random().Next(5000, 7000);
+                sendOrder(seats,price,airlineID);
 
-                // Create Order Class object 
-                OrderClass order = new OrderClass(idNum, cardNum, this.recID, seats);
 
-                // Encode Order Class object into a Sting 
-                Encoder enc = new Encoder();
-                String encodedOrder = enc.encode(order);
+                Thread.Sleep(500);
+            }
+        }
 
-                Boolean sendToBuffer = buffer.SetOneCell(encodedOrder); 
+        public void sendOrder(int seats, double price, String airlineID)
+        {
+            //Set Receiver ID to accomodate 5 Airlines 
 
-                if (sendToBuffer == true)
-                {
-                    orders++;
-                    Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: {1} - Card No: {2} - Seats: {3} - Time: {4} ",
-                                        idNum,order.GetReceiverID(),order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
-                }
-                else
-                {
-                    Console.WriteLine("Travel Agency {0}: Failed to send Order to Airline: {1}", idNum, order.GetReceiverID());
-                }
+            // Generate Random Info to Create an Pricing Model Class object 
+            // Generate a random day of week to help with testing 
+
+            // seats will always be more than 1 so in a sence unlimited
+
+            // Initialize a Pricing Model Class
+            PricingModel pm = new PricingModel();
+
+            // Generate random info required for a Order Class Object 
+            // Generate Random number betwen 5000 and 7000 for credit card number 
+            int cardNum = new Random().Next(5000, 7000);
+
+            // Create Order Class object 
+            OrderClass order = new OrderClass(idNum, cardNum, airlineID, seats);
+
+            // Encode Order Class object into a Sting 
+            Encoder enc = new Encoder();
+            String encodedOrder = enc.encode(order);
+
+            Boolean sendToBuffer = buffer.SetOneCell(encodedOrder);
+
+            if (sendToBuffer == true)
+            {
+                orders++;
+                Console.WriteLine("Travel Agency {0}: sent order with following information -- Airline: {1} - Card No: {2} - Seats: {3} - Time: {4} ",
+                                    idNum, order.GetReceiverID(), order.GetCardNum(), order.GetAmount(), DateTime.Now.ToString("h:mm:ss tt"));
+            }
+            else
+            {
+                Console.WriteLine("Travel Agency {0}: Failed to send Order to Airline: {1}", idNum, order.GetReceiverID());
+            }
+        }
+
+        public void PriceCutEvent(int newPrice, String airlineID)
+        {
+            if (newPrice < this.price)
+            {
+                int seats = new Random().Next(1, 100);
+                sendOrder(seats, newPrice, airlineID);
             }
         }
         #endregion
@@ -534,6 +583,7 @@ namespace A2Berrios_Sean
             Thread ta2Thread = new Thread(new ThreadStart(ta2.Run));
             ta1Thread.Start();
             ta2Thread.Start();
+
             ta1Thread.Join();
             ta2Thread.Join();
         }
