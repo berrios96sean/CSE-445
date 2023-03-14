@@ -12,6 +12,35 @@ namespace LA5Berrios_Sean
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        
+        public string reverseString(String str)
+        {
+            char[] charArr = str.ToCharArray();
+            Array.Reverse(charArr);
+            String output = charArr.ToString();
+
+            return output; 
+        }
+
+        public int sumOfDigits(String num)
+        {
+            int sum = 0;
+            int[] intArr = new int[15];
+            char[] charArr = num.ToCharArray(); 
+
+            // get int arr 
+            for (int i = 0; i < num.Length; i++)
+            {
+                intArr[i] = int.Parse(charArr[i].ToString());
+            }
+
+            // get sum 
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                sum += intArr[i];
+            }
+
+            return sum; 
+        }
+
     }
 }
