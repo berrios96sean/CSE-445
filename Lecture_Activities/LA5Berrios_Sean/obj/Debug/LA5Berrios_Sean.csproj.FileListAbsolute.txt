@@ -1,0 +1,6 @@
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\bin\LA5Berrios_Sean.dll.config
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\bin\LA5Berrios_Sean.dll
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\bin\LA5Berrios_Sean.pdb
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\obj\Debug\LA5Berrios_Sean.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\obj\Debug\LA5Berrios_Sean.dll
+C:\Repos\CSE-445\Lecture_Activities\LA5Berrios_Sean\obj\Debug\LA5Berrios_Sean.pdb

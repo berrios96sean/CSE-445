@@ -14,9 +14,15 @@ namespace LA5Berrios_Sean
     {
         public string reverseString(String str)
         {
+            String output = "";
             char[] charArr = str.ToCharArray();
             Array.Reverse(charArr);
-            String output = charArr.ToString();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                output += charArr[i];
+            }
+            
 
             return output; 
         }
