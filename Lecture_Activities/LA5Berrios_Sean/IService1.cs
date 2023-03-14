@@ -14,10 +14,12 @@ namespace LA5Berrios_Sean
     {
 
         [OperationContract]
+        [WebGet(UriTemplate ="/reverseString/{str}")]
         String reverseString(String str);
 
         [OperationContract]
-        int sumOfDigits(int num);
+        [WebGet(UriTemplate = "/sumOfDigits/{num}")]
+        int sumOfDigits(String num);
     }
 
 
