@@ -1,0 +1,14 @@
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.exe
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.deps.json
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.runtimeconfig.json
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.runtimeconfig.dev.json
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.dll
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\bin\Debug\netcoreapp3.1\LA6Berrios_Sean.pdb
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.AssemblyInfoInputs.cache
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.AssemblyInfo.cs
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.dll
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.pdb
+C:\Repos\CSE-445\Lecture_Activities\LA6Berrios_Sean\obj\Debug\netcoreapp3.1\LA6Berrios_Sean.genruntimeconfig.cache

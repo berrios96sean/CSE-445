@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "LA6Berrios_Sean/1.0.0": {
+        "runtime": {
+          "LA6Berrios_Sean.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LA6Berrios_Sean/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,4 @@
+To test the code on the server you can copy and paste the examples into your browser
+
+http://webstrar7.fulton.asu.edu/page8/Service1.svc/reverseString/hello
+http://webstrar7.fulton.asu.edu/page8/Service1.svc/sumOfDigits/3456
