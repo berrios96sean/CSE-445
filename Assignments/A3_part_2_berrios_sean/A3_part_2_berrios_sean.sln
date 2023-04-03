@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3_part_2_berrios_sean", "A3_part_2_berrios_sean.csproj", "{7974B6CA-9CCF-44D3-B658-D6305661028D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tryIt", "tryIt\tryIt.csproj", "{D6330DCE-0CD9-4A27-A969-C296590541AA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7974B6CA-9CCF-44D3-B658-D6305661028D} = {7974B6CA-9CCF-44D3-B658-D6305661028D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{7974B6CA-9CCF-44D3-B658-D6305661028D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7974B6CA-9CCF-44D3-B658-D6305661028D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7974B6CA-9CCF-44D3-B658-D6305661028D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6330DCE-0CD9-4A27-A969-C296590541AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6330DCE-0CD9-4A27-A969-C296590541AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6330DCE-0CD9-4A27-A969-C296590541AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6330DCE-0CD9-4A27-A969-C296590541AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
