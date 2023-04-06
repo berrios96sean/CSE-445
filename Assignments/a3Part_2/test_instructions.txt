@@ -1,0 +1,22 @@
+to test my project 
+
+open the solution for A3_part_two_berrios_sean
+
+in the project there will be a project with the same name as the folder
+this is the actual rest service. 
+
+You will need to run this before testing the web application
+
+the web application can be tested by setting the project named tryIt as the startup
+
+you can then launch the project and test my service from this page
+
+My service only take one word topics from wikipedia so far. 
+
+I have tested these so far 
+
+yoga
+powerlifting 
+dog
+cat
+wryneck
