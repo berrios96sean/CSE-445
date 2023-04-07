@@ -62,63 +62,49 @@ namespace A3_berrios_sean_part_3
 
         public String WordFilter(String topic)
         {
-            // Make a request to the Wikipedia API to get the page content in plain text format
-            using (HttpClient client = new HttpClient())
+            string url = $"https://en.wikipedia.org/api/rest_v1/page/html/{topic}";
+
+            var client = new HttpClient();
+            var response = client.GetAsync(url).Result;
+            response.EnsureSuccessStatusCode();
+
+            string htmlContent = response.Content.ReadAsStringAsync().Result;
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(htmlContent);
+
+            // Get all section elements
+            var sectionElements = document.DocumentNode.Descendants("section");
+
+            // Loop through each section element and build its <p> elements into a string
+            StringBuilder sb = new StringBuilder();
+            foreach (var section in sectionElements)
             {
-                string html = "";
-                string url1 = getWikiURL(topic);
-
-                // Grab the html of the page content to parse through each heading 
-                using (WebClient client1 = new WebClient())
+                // Check if the section has a header with the text "References"
+                var sectionHeader = section.Descendants("h").FirstOrDefault();
+                if (sectionHeader != null && sectionHeader.InnerText == "References")
                 {
-                    try
-                    {
-                        // Download the webpage as a string
-                        html = client1.DownloadString(url1);
-
-                        // Do something with the HTML string (e.g. print it to console)
-                        Console.WriteLine(html);
-                    }
-                    catch (WebException ex)
-                    {
-                        // Handle any exceptions that occur
-                        Console.WriteLine("Error: " + ex.Message);
-                    }
+                    // Skip this section
+                    continue;
                 }
 
-                // Get html content as a string 
-                var doc = new HtmlDocument();
-                doc.LoadHtml(html);
-                var headings = doc.DocumentNode.Descendants()
-                    .Where(n => n.Name.StartsWith("h"))
-                    .Select(n => n.InnerText.Trim());
-                string txt = string.Join(" ", headings);
+                string sectionId = section.Attributes["id"].Value;
+                var paragraphElements = section.Descendants("p");
+                foreach (var paragraph in paragraphElements)
+                {
+                    sb.AppendLine(paragraph.InnerText);
+                }
+                sb.AppendLine();
+            }
 
-                // Read the contents of the dictionary text file in this directory 
-                string dir = Environment.CurrentDirectory;
 
-                Console.WriteLine(dir);
-
-                string path = "C:\\Repos\\CSE-445\\Assignments\\A3_part_2_berrios_sean";
-                var dict = new HashSet<string>(File.ReadAllLines(path + "\\dictionary.txt"));
-
-                char[] delimiters = new[] { ' ', ',', '.', ';', ':', '!', '?', '(', ')', '[', ']', '{', '}', '<', '>' };
-
-                // Extract all words in the input string that are present in the dictionary
-                var words = txt.Split(delimiters, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(w => w.Trim(new[] { '.', ',', ';', ':', '!', '?', '(', ')', '[', ']', '{', '}', '<', '>' }))
-                    .Where(w => dict.Contains(w.ToLower()));
-
-                // Concatenate all extracted words into a single string
-                string res = string.Join(" ", words);
-
-                List<string> stopWords = new List<string>
+            List<string> stopWords = new List<string>
                 {
                     "a", "an","and", "in", "on", "the", "is", "are", "am", "to", "or", "of", "as"
                 };
 
                 // Split input string into words and filter out stop words
-                string[] remove = res.Split(' ')
+                string[] remove = sb.ToString().Split(' ')
                     .Where(word => !stopWords.Contains(word.ToLower()))
                     .ToArray();
 
@@ -126,7 +112,7 @@ namespace A3_berrios_sean_part_3
                 string stopsRemoved = string.Join(" ", remove);
 
                 return stopsRemoved;
-            }
+
         }
 
         public String GetDates(String topic)
@@ -295,7 +281,7 @@ namespace A3_berrios_sean_part_3
 
             List<TopicData> td = new List<TopicData>();
 
-            for (int i = 1; i <= count; i++)
+            for (int i = 1; i < count; i++)
             {
                 TopicData temp = new TopicData {topic = tps[i], description = sections[i] };
 
@@ -315,7 +301,7 @@ namespace A3_berrios_sean_part_3
             };
             string json = JsonSerializer.Serialize(rootObject, options0);
 
-            return json;
+            return tps[1];
         }
 
         class DateData
