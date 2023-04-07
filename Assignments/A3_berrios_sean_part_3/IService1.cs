@@ -14,34 +14,23 @@ namespace A3_berrios_sean_part_3
     {
 
         [OperationContract]
-        string GetData(int value);
+        [WebGet(UriTemplate = "/add/{a}/{b}")]
+        String add(String a, String b);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        [WebGet(UriTemplate = "/getWikiURL/{topic}")]
+        String getWikiURL(String topic);
 
-        // TODO: Add your service operations here
-    }
+        [OperationContract]
+        [WebGet(UriTemplate = "/WordFilter/{topic}")]
+        String WordFilter(String topic);
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetDates/{topic}")]
+        String GetDates(String topic);
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetTopics/{topic}")]
+        String GetTopics(String topic);
     }
 }
