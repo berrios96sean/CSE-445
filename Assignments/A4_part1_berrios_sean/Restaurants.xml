@@ -1,10 +1,48 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Restaurants>
+	<restaurant Delivery="N">
+		<name>Macayo's Mesa Gateway</name>
+		<contact>
+			<phone>602-325-8575</phone>
+			<email>gateway@macayo.com</email>
+		</contact>
+		<website>https://www.macayo.com/</website>
+		<facebook>https://www.facebook.com/macayosrestaurants</facebook>
+	</restaurant>
+	<restaurant Delivery="N">
+		<name>Joe's Farm Grill</name>
+		<contact>
+			<phone>480-563-4745</phone>
+			<email>INFO@JOESFARMGRILL.COM</email>
+		</contact>
+		<website>https://www.joesfarmgrill.com/</website>
+		<facebook>https://www.facebook.com/JoesFarmGrill/</facebook>
+	</restaurant>
+	<restaurant Delivery="N">
+		<name>Uncle Bear's Brewery</name>
+		<contact>
+			<phone>480-867-1585</phone>
+			<email>brewery@unclebearsaz.com</email>
+		</contact>
+		<website>https://www.unclebearsaz.com/</website>
+		<facebook>https://www.facebook.com/UncleBearsBrewery/</facebook>
+	</restaurant>
+	<restaurant Delivery="N">
+		<name>Lucky Lou's American Kitchen</name>
+		<contact>
+			<phone>480-500-5565</phone>
+			<email>info@luckylouskitchen.com</email>
+		</contact>
+		<website>https://luckylouskitchen.com/</website>
+		<facebook>https://www.facebook.com/luckylouskitchen</facebook>
+	</restaurant>
+	<restaurant Delivery="Y">
+		<name>Fired Pie</name>
+		<contact>
+			<phone>623-879-6500</phone>
+			<email>info@firedpie.com</email>
+		</contact>
+		<website>https://firedpie.com/</website>
+		<facebook>https://www.facebook.com/FiredPie</facebook>
+	</restaurant>
+</Restaurants>
