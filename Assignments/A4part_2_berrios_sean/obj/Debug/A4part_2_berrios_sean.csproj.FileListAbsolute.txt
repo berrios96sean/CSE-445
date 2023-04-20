@@ -1,0 +1,7 @@
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\bin\A4part_2_berrios_sean.dll.config
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\bin\A4part_2_berrios_sean.dll
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\bin\A4part_2_berrios_sean.pdb
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\obj\Debug\A4part_2_berrios_sean.csproj.AssemblyReference.cache
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\obj\Debug\A4part_2_berrios_sean.csproj.CoreCompileInputs.cache
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\obj\Debug\A4part_2_berrios_sean.dll
+C:\Repos\CSE-445\Assignments\A4part_2_berrios_sean\obj\Debug\A4part_2_berrios_sean.pdb
