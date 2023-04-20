@@ -16,6 +16,8 @@ namespace A4part_2_berrios_sean
         [OperationContract]
         string verification(string xml, string xsd);
 
+        [OperationContract]
+        string xPathSearch(string xml, string path);
     }
 
 }

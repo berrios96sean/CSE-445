@@ -32,7 +32,35 @@ namespace A4part_2_berrios_sean
             }
             catch (Exception ex)
             {
-                return $"Error: {ex.Message}";
+                return "Error:  " + ex.Message;
+            }
+        }
+
+        public string xPathSearch(string xml, string path)
+        {
+            try
+            {
+                XmlReader reader = XmlReader.Create(xml);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(reader);
+                XmlNodeList nodes = doc.SelectNodes(path);
+
+                if (nodes.Count == 0)
+                {
+                    return "Error: No matching nodes found";
+                }
+
+                string result = "";
+                foreach (XmlNode node in nodes)
+                {
+                    result += node.InnerText + " | \n";
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return "Error:  " + ex.Message;
             }
         }
 
